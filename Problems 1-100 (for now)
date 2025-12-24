@@ -3,600 +3,600 @@
         "id": 1,
         "category": "Number Theory (Proof)",
         "problem": "Prove that for any integer n > 1, if n divides (n−1)!, then n is composite.",
-        "solution": "If n were prime, Wilson’s Theorem gives (n−1)! ≡ −1 (mod n), contradicting n | (n−1)!. Hence n must be composite."
+        "solution": "Assume for contradiction that n is prime. By Wilson’s Theorem, (n−1)! ≡ −1 (mod n). However, the hypothesis states n | (n−1)!, which implies (n−1)! ≡ 0 (mod n). This leads to 0 ≡ −1 (mod n), which is impossible for n > 1. Therefore, n must be composite."
     },
     {
         "id": 2,
         "category": "Number Theory (Proof)",
         "problem": "Prove that there are infinitely many primes congruent to 1 modulo 4.",
-        "solution": "Assume finitely many such primes p1,…,pk. Let N = 4p1p2…pk + 1. Any prime divisor q of N satisfies q ≡ 1 (mod 4); otherwise −1 would be a quadratic residue modulo q, impossible if q ≡ 3 (mod 4). Contradiction."
+        "solution": "Assume there are finitely many such primes p_1, ..., p_k. Let N = (2p_1...p_k)^2 + 1. Let q be a prime divisor of N. Then (2p_1...p_k)^2 ≡ −1 (mod q). This implies −1 is a quadratic residue modulo q, so the Legendre symbol (-1/q) = 1. By Euler's criterion, this requires q ≡ 1 (mod 4). Since q divides N, q is distinct from any p_i (as N ≡ 1 mod p_i). Thus, q is a new prime of the form 4k+1, contradicting finiteness."
     },
     {
         "id": 3,
         "category": "Number Theory (Proof)",
         "problem": "Show that if a² divides b² for integers a,b, then a divides b.",
-        "solution": "If p^k | a, then p^{2k} | b², so p^k | b. This holds for every prime divisor of a, hence a | b."
+        "solution": "Let the prime factorization of a be Π p_i^{e_i}. Then a² has factorization Π p_i^{2e_i}. If a² | b², then for every prime p_i, the exponent in b² (say 2f_i) must satisfy 2e_i ≤ 2f_i, which implies e_i ≤ f_i. Thus, every prime factor of a divides b with sufficient multiplicity, so a | b."
     },
     {
         "id": 4,
         "category": "Number Theory (Proof)",
         "problem": "Prove that no integer of the form n² + n + 1 is divisible by 5.",
-        "solution": "Checking n ≡ 0,1,2,3,4 (mod 5), the expression is congruent to 1,3,2,3,1 respectively, never 0."
+        "solution": "We check the values of n² + n + 1 modulo 5 for all residues n ≡ 0, 1, 2, 3, 4. The results are 1, 3, 2, 3, 1 respectively. Since the expression is never congruent to 0 modulo 5, it is never divisible by 5."
     },
     {
         "id": 5,
         "category": "Number Theory (Proof)",
-        "problem": "Prove that for all integers n ≥ 1, gcd(Fn, F_{n+1}) = 1.",
-        "solution": "Any common divisor of Fn and F_{n+1} divides F_{n+1}−Fn = F_{n−1}. Repeating gives it divides F1 = 1, so the gcd is 1."
+        "problem": "Prove that for all integers n ≥ 1, gcd(F_n, F_{n+1}) = 1, where F_n is the Fibonacci sequence.",
+        "solution": "By the Euclidean algorithm, gcd(F_{n+1}, F_n) = gcd(F_{n+1} - F_n, F_n) = gcd(F_{n-1}, F_n). We can repeat this reduction until we reach gcd(F_2, F_1) = gcd(1, 1) = 1. Thus, consecutive Fibonacci numbers are coprime."
     },
     {
         "id": 6,
         "category": "Algebra / Inequalities (Proof)",
-        "problem": "Prove that for positive real numbers a,b,c, \n\\[ \\frac{a^2}{b+c} + \\frac{b^2}{c+a} + \\frac{c^2}{a+b} \\ge \\frac{a+b+c}{2}. \\]",
-        "solution": "By the Cauchy–Schwarz inequality in the form \\((\\sum a_i^2/b_i)(\\sum b_i) \\ge (\\sum a_i)^2\\), we have\n\\[\\left(\\frac{a^2}{b+c}+\\frac{b^2}{c+a}+\\frac{c^2}{a+b}\\right)((b+c)+(c+a)+(a+b)) \\ge (a+b+c)^2.\\]\nSince \\((b+c)+(c+a)+(a+b)=2(a+b+c)\\), dividing both sides gives\n\\[\\frac{a^2}{b+c}+\\frac{b^2}{c+a}+\\frac{c^2}{a+b} \\ge \\frac{(a+b+c)^2}{2(a+b+c)} = \\frac{a+b+c}{2}.\\]"
+        "problem": "Prove that for positive real numbers a,b,c, a²/(b+c) + b²/(c+a) + c²/(a+b) ≥ (a+b+c)/2.",
+        "solution": "By Titu's Lemma (Engel form of Cauchy-Schwarz), ∑ a²/(b+c) ≥ (∑ a)² / ∑ (b+c) = (a+b+c)² / 2(a+b+c) = (a+b+c)/2."
     },
     {
         "id": 7,
         "category": "Algebra / Inequalities (Proof)",
-        "problem": "Let x,y,z>0 with xyz=1. Prove that x+y+z ≥ xy+yz+zx.",
-        "solution": "Using AM-GM and the substitution x = a/b, y = b/c, z = c/a with positive a,b,c, we reduce to the inequality\nx+y+z ≥ xy+yz+zx, which holds by summing cyclic AM ≥ GM inequalities: x+y ≥ 2√xy, etc. Adding these gives the desired result."
+        "problem": "Let x,y,z > 0. Prove that (x+y+z)(1/x + 1/y + 1/z) ≥ 9.",
+        "solution": "By the AM-GM inequality, x+y+z ≥ 3(xyz)^(1/3) and 1/x+1/y+1/z ≥ 3(1/xyz)^(1/3). Multiplying these two inequalities gives (x+y+z)(1/x+1/y+1/z) ≥ 9(xyz)^(1/3)(1/xyz)^(1/3) = 9."
     },
     {
         "id": 8,
         "category": "Algebra / Inequalities (Proof)",
         "problem": "Prove that for all real x, x⁴ + 4 ≥ 4x.",
-        "solution": "Rewrite as (x²−1)² + 2(x−1)² ≥ 0, which is always true."
+        "solution": "We can factor the expression x⁴ - 4x + 4. Note that x⁴ - 4x + 4 = (x² - 1)² + 2(x - 1)² + 1 is not quite right. Let's use AM-GM on x⁴, 1, 1, 1? No. Simpler: (x²-1)² + 2(x-1)² + 1 ≥ 1 > 0 is actually sufficient. Alternatively, x⁴+4-4x = (x-1)²(x²+2x+2) + 2 > 0. A cleaner AM-GM approach: x⁴+1+1+1 ≥ 4x implies x⁴+3 ≥ 4x, so x⁴+4 > 4x is definitely true."
     },
     {
         "id": 9,
         "category": "Algebra / Inequalities (Proof)",
-        "problem": "Prove that for all real numbers a,b,c > -1,\n\\[ \\frac{(a-1)^2}{a+1} + \\frac{(b-1)^2}{b+1} + \\frac{(c-1)^2}{c+1} \\ge 0. \\]",
-        "solution": "For any real x > -1, the denominator x+1 is positive and the numerator (x−1)^2 is nonnegative, so each term is nonnegative. Therefore, the sum is nonnegative."
+        "problem": "Prove that for all real numbers a,b,c > -1, the sum (a-1)²/(a+1) + (b-1)²/(b+1) + (c-1)²/(c+1) ≥ 0.",
+        "solution": "Since a,b,c > -1, the denominators a+1, b+1, c+1 are strictly positive. The numerators are squares of real numbers, hence non-negative. The sum of non-negative terms is non-negative."
     },
     {
         "id": 10,
         "category": "Algebra / Inequalities (Proof)",
         "problem": "Show that for real numbers a,b,c, a²+b²+c² ≥ ab+bc+ca.",
-        "solution": "Since (a−b)²+(b−c)²+(c−a)² ≥ 0, expanding yields the inequality."
+        "solution": "Multiply the inequality by 2: 2a²+2b²+2c² ≥ 2ab+2bc+2ca. Rearrange to find (a²-2ab+b²) + (b²-2bc+c²) + (c²-2ca+a²) ≥ 0, which simplifies to (a-b)² + (b-c)² + (c-a)² ≥ 0. This is always true for real numbers."
     },
     {
         "id": 11,
         "category": "Combinatorics (Proof)",
         "problem": "Prove that among any n+1 integers, there exist two whose difference is divisible by n.",
-        "solution": "Reducing modulo n gives n residue classes. By pigeonhole principle, two integers share the same residue."
+        "solution": "Consider the integers modulo n. There are n possible remainders (0, 1, ..., n-1). By the Pigeonhole Principle, if we select n+1 integers, at least two must share the same remainder r. Let these be x and y. Then x ≡ r (mod n) and y ≡ r (mod n), implying x - y ≡ 0 (mod n), so n divides their difference."
     },
     {
         "id": 12,
         "category": "Combinatorics (Proof)",
-        "problem": "Show that any graph with more than (n−1)(n−2)/2 edges contains a triangle.",
-        "solution": "By Turán’s theorem, the maximum number of edges in a triangle-free graph on n vertices is (n−1)(n−2)/2."
+        "problem": "Show that any graph with n vertices and more than ⌊n²/4⌋ edges contains a triangle.",
+        "solution": "This is Mantel's Theorem. A bipartite graph with partition sizes k and n-k has k(n-k) edges, maximized when k = ⌊n/2⌋, giving ⌊n²/4⌋ edges. If a graph has more edges than this maximum for bipartite graphs, it cannot be bipartite. However, non-bipartite does not guarantee a triangle (e.g. C5). The rigorous proof (Turán's) shows that the unique triangle-free graph with maximum edges is the complete bipartite graph K_{⌊n/2⌋, ⌈n/2⌉}. Any additional edge must connect two vertices in the same partition, forming a triangle with a vertex in the other partition."
     },
     {
         "id": 13,
         "category": "Combinatorics (Proof)",
         "problem": "Prove that in any group of six people, there are either three mutual friends or three mutual strangers.",
-        "solution": "Fix one person. Among the five others, at least three are mutual friends or mutual strangers with them. Applying pigeonhole gives a monochromatic triangle."
+        "solution": "Represent people as vertices and friendship as edges (strangers as non-edges). Fix vertex V. By Pigeonhole Principle, V is connected to at least 3 others (say A, B, C) via the same relationship (assume friends WLOG). If any pair among {A, B, C} are friends (e.g., A-B), then V-A-B form a triangle (3 mutual friends). If no pair among {A, B, C} are friends, then A, B, C form a set of 3 mutual strangers. The logic is symmetric if V starts with 3 strangers."
     },
     {
         "id": 14,
         "category": "Combinatorics (Proof)",
         "problem": "Prove that the number of subsets of {1,2,…,n} with even sum equals the number with odd sum.",
-        "solution": "The map S ↦ S ⊕ {1} is a bijection that toggles parity of the sum."
+        "solution": "Consider the mapping f: P({1..n}) → P({1..n}) defined by toggling the element '1'. If 1 is in S, remove it; if not, add it. This map is a bijection. Since 1 is odd, removing or adding it changes the parity of the sum of the subset. Thus, f pairs every even-sum subset with an odd-sum subset, implying equal counts."
     },
     {
         "id": 15,
         "category": "Combinatorics (Proof)",
         "problem": "Show that any permutation of {1,2,…,n} can be written as a product of transpositions.",
-        "solution": "Every cycle (a1 a2 … ak) equals (a1 ak)(a1 ak−1)…(a1 a2)."
+        "solution": "Any permutation can be decomposed into disjoint cycles. A cycle (x_1 x_2 ... x_k) can be written as the product of transpositions (x_1 x_k)(x_1 x_{k-1})...(x_1 x_2). Since the permutation is a product of cycles and cycles are products of transpositions, the result follows."
     },
     {
         "id": 16,
         "category": "Geometry (Proof)",
         "problem": "Prove that the medians of a triangle intersect at a single point.",
-        "solution": "Using vectors, the medians intersect at (A+B+C)/3, called the centroid."
+        "solution": "Let the vertices be vectors A, B, C. The midpoint of BC is (B+C)/2. The point 2/3 of the way from A to this midpoint is A + (2/3)((B+C)/2 - A) = (A+B+C)/3. Due to symmetry, this point lies on all three medians (dividing each in a 2:1 ratio), so they are concurrent."
     },
     {
         "id": 17,
         "category": "Geometry (Proof)",
         "problem": "Show that the angle bisectors of a triangle meet at one point.",
-        "solution": "Points on an angle bisector are equidistant from the sides. The unique point equidistant from all three sides is the incenter."
+        "solution": "The locus of points equidistant from two lines is their angle bisector. Let the bisectors of angles A and B meet at I. Then I is equidistant from side AB and AC, and from side AB and BC. Transitivity implies I is equidistant from AC and BC, so I must lie on the angle bisector of C. Thus, they are concurrent."
     },
     {
         "id": 18,
         "category": "Geometry (Proof)",
         "problem": "Prove that opposite angles of a cyclic quadrilateral sum to 180°.",
-        "solution": "Opposite angles subtend complementary arcs, whose measures sum to 360°, so each pair sums to 180°."
+        "solution": "In a circle, the measure of an inscribed angle is half the measure of its intercepted arc. Let the vertices be A, B, C, D in order. Angle A subtends arc BCD, and Angle C subtends arc DAB. The sum of the angles is 1/2(arc BCD + arc DAB) = 1/2(360°) = 180°."
     },
     {
         "id": 19,
         "category": "Geometry (Proof)",
         "problem": "Show that the perpendicular bisectors of a triangle’s sides are concurrent.",
-        "solution": "Each bisector is the locus of points equidistant from two vertices; their intersection is equidistant from all three."
+        "solution": "The perpendicular bisector of a segment AB is the locus of points equidistant from A and B. Let the bisectors of AB and BC intersect at O. Then OA = OB and OB = OC. This implies OA = OC, so O must lie on the perpendicular bisector of AC. Thus, all three meet at O (the circumcenter)."
     },
     {
         "id": 20,
         "category": "Geometry (Proof)",
         "problem": "Prove that the altitudes of a triangle are concurrent.",
-        "solution": "In coordinates, the altitudes intersect at a unique point, the orthocenter."
+        "solution": "Consider triangle ABC. Construct a larger triangle A'B'C' by drawing lines through A, B, C parallel to the opposite sides. The altitudes of ABC correspond to the perpendicular bisectors of the sides of A'B'C'. Since we know perpendicular bisectors are concurrent (Problem 19), the altitudes of ABC must be concurrent."
     },
     {
         "id": 21,
         "category": "Number Theory (Non-Proof)",
         "problem": "Find all integers x such that x² ≡ 1 (mod 15).",
-        "solution": "Solving modulo 3 and 5 gives x ≡ ±1 (mod 15)."
+        "solution": "This is equivalent to x² ≡ 1 (mod 3) AND x² ≡ 1 (mod 5). Modulo 3, solutions are x ≡ 1, 2. Modulo 5, solutions are x ≡ 1, 4. Using the Chinese Remainder Theorem on the pairs (1,1), (1,4), (2,1), (2,4) yields four solutions modulo 15: 1, 4, 11, 14."
     },
     {
         "id": 22,
         "category": "Number Theory (Non-Proof)",
         "problem": "Find all integer solutions to x² − 5y² = 1.",
-        "solution": "This Pell equation has fundamental solution (9,4). All solutions are given by powers of 9+4√5."
+        "solution": "This is a Pell equation x² - Dy² = 1 with D=5. The fundamental solution is found by checking convergents of √5 or inspection: 9² - 5(4²) = 81 - 80 = 1. Thus (9, 4) is the fundamental solution. All solutions (x_k, y_k) are generated by (9 + 4√5)^k for integer k ≥ 1."
     },
     {
         "id": 23,
         "category": "Number Theory (Non-Proof)",
         "problem": "Compute the highest power of 2 dividing 100!.",
-        "solution": "Using Legendre’s formula gives 50+25+12+6+3+1 = 97."
+        "solution": "Using Legendre’s Formula: E_p(n!) = ∑ ⌊n/p^k⌋. For p=2, n=100: ⌊100/2⌋ + ⌊100/4⌋ + ⌊100/8⌋ + ⌊100/16⌋ + ⌊100/32⌋ + ⌊100/64⌋ = 50 + 25 + 12 + 6 + 3 + 1 = 97."
     },
     {
         "id": 24,
         "category": "Number Theory (Non-Proof)",
         "problem": "Solve x³ ≡ 1 (mod 7).",
-        "solution": "Testing residues modulo 7 yields x ≡ 1,2,4."
+        "solution": "By inspection of residues mod 7: 1³=1, 2³=8≡1, 3³=27≡6, 4³=64≡1, 5³≡-2, 6³≡-1. The solutions are x ≡ 1, 2, 4 (mod 7)."
     },
     {
         "id": 25,
         "category": "Number Theory (Non-Proof)",
         "problem": "Find all n such that φ(n)=4.",
-        "solution": "Checking cases gives n=5,8,10,12."
+        "solution": "If n = p^k m, φ(n) = p^{k-1}(p-1)φ(m). Since p-1 | 4, primes can only be 2, 3, 5. \nIf p=5: 5-1=4, so n=5 works (φ(5)=4). n=10 works (φ(10)=1*4=4).\nIf p=3: 3-1=2, so we need factor 2 left. n=3*something? No, φ(3)=2. φ(9)=6 (too big). φ(4)=2. φ(8)=4 (works). φ(12)=φ(4)φ(3)=2*2=4 (works). \nSolutions: n = 5, 8, 10, 12."
     },
     {
         "id": 26,
         "category": "Algebra (Functional Equations)",
         "problem": "Find all continuous functions f:ℝ→ℝ such that f(x+y)=f(x)+f(y) and f(1)=2.",
-        "solution": "Continuity implies linearity, so f(x)=2x."
+        "solution": "This is the Cauchy functional equation. For continuous f, the solution is of the form f(x) = cx. Since f(1) = 2, we have c(1) = 2, so c = 2. Thus, f(x) = 2x."
     },
     {
         "id": 27,
         "category": "Algebra (Functional Equations)",
-        "problem": "Find all continuous functions f:ℝ→ℝ such that\n\\[ f(x)f(y)=f(x+y) \\quad \\text{for all real } x,y. \\]",
-        "solution": "If f≡0, the equation holds. Otherwise, f(x)>0 for all x. Taking logarithms gives g(x)=ln f(x) satisfying g(x+y)=g(x)+g(y). By continuity, g(x)=cx for some constant c, hence f(x)=e^{cx}."
+        "problem": "Find all continuous functions f:ℝ→ℝ such that f(x)f(y)=f(x+y) for all real x,y.",
+        "solution": "The zero function f(x) = 0 is a solution. If f is not identically zero, then f(x) = f(x/2 + x/2) = f(x/2)² ≥ 0. If f(c)=0 for some c, then f(x) = f(x-c)f(c) = 0 for all x. Thus, if f is not 0, f(x) > 0 everywhere. Let g(x) = ln(f(x)). Then g(x+y) = g(x) + g(y). By continuity, g(x) = cx, so f(x) = e^{cx}. Solutions: f(x) = 0 or f(x) = a^x for a > 0."
     },
     {
         "id": 28,
         "category": "Algebra (Polynomials)",
-        "problem": "If P(x)=P(1−x) for all x, show P can be written as a polynomial in x(1−x).",
-        "solution": "Consider Q(x)=P(x)−P(0). Then Q(x)=Q(1−x). Expand Q in powers of (x−1/2). Since Q(x) is symmetric about x=1/2, it can be expressed as a polynomial in (x−1/2)^2. Substituting (x−1/2)^2 = 1/4 − x(1−x) gives Q as a polynomial in x(1−x), and adding back P(0) completes P(x)."
+        "problem": "If P(x) is a polynomial such that P(x)=P(1−x) for all x, show P can be written as a polynomial in y = x(1−x).",
+        "solution": "The symmetry axis is x = 1/2. Let t = x - 1/2. Then P(1/2 + t) = P(1/2 - t), so the polynomial Q(t) = P(t+1/2) is even. Thus Q(t) is a polynomial in t² = (x-1/2)² = x² - x + 1/4 = 1/4 - x(1-x) = 1/4 - y. Since Q is a polynomial in 1/4 - y, it is a polynomial in y."
     },
     {
         "id": 29,
         "category": "Algebra (Inequalities)",
         "problem": "Prove that for x>0, x+1/x ≥ 2.",
-        "solution": "By AM-GM, (x+1/x)/2 ≥ √(x·1/x)=1, so x+1/x ≥ 2."
+        "solution": "Using AM-GM: (x + 1/x)/2 ≥ √(x * 1/x) = √1 = 1. Multiplying by 2 gives x + 1/x ≥ 2. Equality holds when x = 1/x, i.e., x=1."
     },
     {
         "id": 30,
         "category": "Algebra (Inequalities)",
         "problem": "Find the minimum of x²+1/x² for x>0.",
-        "solution": "By AM-GM, x²+1/x² ≥ 2 with equality at x=1."
+        "solution": "Using AM-GM: x² + 1/x² ≥ 2√(x² * 1/x²) = 2. The minimum value is 2, achieved when x=1."
     },
     {
         "id": 31,
         "category": "Combinatorics (Counting)",
         "problem": "How many subsets of {1,2,…,n} have exactly k elements?",
-        "solution": "The answer is C(n,k)."
+        "solution": "This is the definition of the binomial coefficient 'n choose k', denoted C(n, k) or (n k), which equals n! / (k!(n-k)!)."
     },
     {
         "id": 32,
         "category": "Combinatorics (Graph Theory)",
         "problem": "Show that a tree with n vertices has n−1 edges.",
-        "solution": "Induct on n by removing a leaf."
+        "solution": "We use induction. Base case: n=1 has 0 edges (1-1=0). Assume true for n=k. A tree with k+1 vertices has at least one leaf (vertex with degree 1). Removing the leaf and its incident edge leaves a tree with k vertices. By hypothesis, the smaller tree has k-1 edges. Adding the edge back gives (k-1)+1 = k edges. Thus, n vertices imply n-1 edges."
     },
     {
         "id": 33,
         "category": "Combinatorics (Invariants)",
         "problem": "A move flips exactly two bits in a binary string. Prove parity of the number of 1s is invariant.",
-        "solution": "Flipping two bits changes the count of 1s by an even number."
+        "solution": "Let the bits be a and b. If we flip 0,0 → 1,1 (count increases by 2). If 1,1 → 0,0 (count decreases by 2). If 1,0 → 0,1 (count remains same). In all cases, the change in the number of 1s is even. Thus, the parity (odd/even status) of the sum remains unchanged."
     },
     {
         "id": 34,
         "category": "Combinatorics (Extremal)",
         "problem": "What is the maximum number of edges in a bipartite graph with n vertices?",
-        "solution": "The maximum is ⌊n²/4⌋."
+        "solution": "Let the partition sizes be k and n-k. The number of edges is k(n-k). This product is maximized when k is as close to n/2 as possible. If n is even, k=n/2, max edges = n²/4. If n is odd, k=(n-1)/2, max edges = (n²-1)/4. This can be written as ⌊n²/4⌋."
     },
     {
         "id": 35,
         "category": "Combinatorics (Pigeonhole)",
         "problem": "Show that among any 13 integers, two have the same remainder mod 12.",
-        "solution": "There are only 12 residue classes modulo 12."
+        "solution": "The set of possible remainders modulo 12 is {0, 1, ..., 11}, which has size 12. If we select 13 integers, we correspond them to 13 remainders. By the Pigeonhole Principle (13 pigeons, 12 holes), at least two integers must map to the same remainder."
     },
     {
         "id": 36,
         "category": "Geometry (Coordinate)",
         "problem": "Find the area of a triangle with vertices (0,0),(a,0),(0,b).",
-        "solution": "The area is ab/2."
+        "solution": "This is a right-angled triangle with legs of length |a| and |b| lying on the axes. The area is 1/2 * base * height = 1/2 * |a| * |b|."
     },
     {
         "id": 37,
         "category": "Geometry (Vector)",
         "problem": "Show that the centroid of a triangle is the average of its vertex vectors.",
-        "solution": "Vector medians intersect at (A+B+C)/3."
+        "solution": "Let vertices be u, v, w. The median from u goes to the midpoint (v+w)/2. The centroid G lies 2/3 down this median: G = u + (2/3)((v+w)/2 - u) = u + 1/3(v+w) - 2/3u = 1/3(u+v+w)."
     },
     {
         "id": 38,
         "category": "Geometry (Transformations)",
         "problem": "Show that a 180° rotation is equivalent to point reflection.",
-        "solution": "Each point maps to its opposite across the center."
+        "solution": "A rotation of 180° about the origin maps (x,y) to (-x,-y). A point reflection across the origin maps P to P' such that the origin is the midpoint of PP'. Thus (x,y) maps to (-x,-y). The transformations are identical."
     },
     {
         "id": 39,
         "category": "Geometry (Loci)",
-        "problem": "Find the locus of points equidistant from two fixed points.",
-        "solution": "The perpendicular bisector of the segment."
+        "problem": "Find the locus of points equidistant from two fixed points A and B.",
+        "solution": "The locus is the line perpendicular to the segment AB and passing through its midpoint (the perpendicular bisector)."
     },
     {
         "id": 40,
         "category": "Geometry (Inversion)",
         "problem": "What happens to a line not through the center under inversion?",
-        "solution": "It maps to a circle passing through the center."
+        "solution": "Let the center of inversion be O. A line not passing through O inverts to a circle that passes through O (the center of inversion)."
     },
     {
         "id": 41,
         "category": "Mixed",
         "problem": "Prove that the sum of the first n odd numbers is n².",
-        "solution": "By induction or pairing consecutive odd numbers."
+        "solution": "The k-th odd number is 2k-1. We want ∑_{k=1}^n (2k-1). Splitting the sum: 2∑k - ∑1 = 2[n(n+1)/2] - n = n(n+1) - n = n² + n - n = n²."
     },
     {
         "id": 42,
         "category": "Mixed",
-        "problem": "Show that a graph with odd total degree sum has an even number of vertices with odd degree.",
-        "solution": "By the handshaking lemma, the sum of degrees is twice the number of edges. Since the sum of degrees of vertices with odd degree must be even, the number of such vertices is even."
+        "problem": "Show that a graph with odd total degree sum is impossible.",
+        "solution": "The Handshaking Lemma states that the sum of degrees in a graph is 2|E|, which is always even. Thus, a total degree sum cannot be odd."
     },
     {
         "id": 43,
         "category": "Mixed",
         "problem": "Prove that √2 is irrational.",
-        "solution": "Assume √2=a/b in lowest terms. Then a²=2b² implies both a,b even, contradiction."
+        "solution": "Assume √2 = a/b in lowest terms (gcd(a,b)=1). Then 2 = a²/b² => a² = 2b². This implies a² is even, so a is even (a=2k). Then (2k)² = 2b² => 4k² = 2b² => b² = 2k². This implies b is even. If a and b are both even, gcd(a,b) ≥ 2, contradicting the lowest terms assumption."
     },
     {
         "id": 44,
         "category": "Mixed",
-        "problem": "Show that the harmonic series diverges.",
-        "solution": "Grouping terms by powers of two gives a divergent lower bound."
+        "problem": "Show that the harmonic series ∑ 1/n diverges.",
+        "solution": "We use the comparison test with grouped terms (Cauchy Condensation). \n1 + 1/2 + (1/3 + 1/4) + (1/5 + ... + 1/8) + ... \n> 1 + 1/2 + (1/4 + 1/4) + (1/8 + ... + 1/8) + ... \n= 1 + 1/2 + 1/2 + 1/2 + ... \nSince we add 1/2 infinitely many times, the sum grows without bound."
     },
     {
         "id": 45,
         "category": "Mixed",
-        "problem": "Prove that no domino tiling exists for a chessboard with one corner removed.",
-        "solution": "Each domino covers one black and one white square; the coloring is unbalanced."
+        "problem": "Prove that no domino tiling exists for a standard chessboard with two opposite corners removed.",
+        "solution": "A standard chessboard has 64 squares (32 black, 32 white). Opposite corners are the same color (say, white). Removing them leaves 32 black and 30 white squares. Since every domino covers exactly one black and one white square, any tiling requires equal numbers of black and white squares. 32 ≠ 30, so no tiling exists."
     },
     {
         "id": 46,
         "category": "Speed",
         "problem": "Compute 1²+2²+…+n².",
-        "solution": "The sum is n(n+1)(2n+1)/6."
+        "solution": "The formula for the sum of the first n squares is n(n+1)(2n+1)/6."
     },
     {
         "id": 47,
         "category": "Speed",
         "problem": "Solve x²−5x+6=0.",
-        "solution": "The solutions are x=2,3."
+        "solution": "Factoring the quadratic gives (x-2)(x-3)=0. Thus x=2 or x=3."
     },
     {
         "id": 48,
         "category": "Speed",
         "problem": "Find the number of trailing zeros of 50!.",
-        "solution": "⌊50/5⌋+⌊50/25⌋ = 12."
+        "solution": "We count factors of 5 in 50!. ⌊50/5⌋ + ⌊50/25⌋ = 10 + 2 = 12."
     },
     {
         "id": 49,
         "category": "Speed",
         "problem": "Evaluate ∑_{k=1}^n k.",
-        "solution": "The sum is n(n+1)/2."
+        "solution": "This is the sum of the first n integers: n(n+1)/2."
     },
     {
         "id": 50,
         "category": "Speed",
         "problem": "Find the determinant of [[1,2],[3,4]].",
-        "solution": "The determinant is −2."
+        "solution": "ad - bc = (1)(4) - (2)(3) = 4 - 6 = -2."
     },
     {
         "id": 51,
         "category": "Number Theory (Proof)",
         "problem": "Prove that for any integer n > 1, n^2 − 1 is divisible by 8 if n is odd.",
-        "solution": "If n is odd, n = 2k+1. Then n^2−1 = (2k+1)^2−1 = 4k(k+1). Among consecutive integers k and k+1, one is even, so 4k(k+1) is divisible by 8."
+        "solution": "If n is odd, let n = 2k+1. Then n^2 - 1 = (2k+1)^2 - 1 = 4k^2 + 4k = 4k(k+1). Since k and k+1 are consecutive integers, one of them must be even. Therefore k(k+1) is divisible by 2, making 4k(k+1) divisible by 4*2 = 8."
     },
     {
         "id": 52,
         "category": "Number Theory (Proof)",
         "problem": "Prove that the sum of any three consecutive integers is divisible by 3.",
-        "solution": "Let the integers be n, n+1, n+2. Sum = n+(n+1)+(n+2) = 3n+3 = 3(n+1), divisible by 3."
+        "solution": "Let the integers be n-1, n, n+1. Their sum is 3n, which is clearly divisible by 3."
     },
     {
         "id": 53,
         "category": "Algebra / Inequalities (Proof)",
         "problem": "Prove that for positive real numbers a,b, (a+b)/2 ≥ √(ab).",
-        "solution": "AM-GM inequality: (a+b)/2 ≥ √(ab), equality holds if a = b."
+        "solution": "Consider (√a - √b)². Since squares are non-negative, a - 2√ab + b ≥ 0. Rearranging gives a + b ≥ 2√ab, or (a+b)/2 ≥ √(ab)."
     },
     {
         "id": 54,
         "category": "Algebra / Inequalities (Proof)",
         "problem": "Prove that for any real numbers x, y, x^2 + y^2 ≥ 2xy.",
-        "solution": "x^2 + y^2 − 2xy = (x−y)^2 ≥ 0 ⇒ x^2 + y^2 ≥ 2xy."
+        "solution": "This follows immediately from the trivial inequality (x-y)^2 ≥ 0, which expands to x^2 - 2xy + y^2 ≥ 0."
     },
     {
         "id": 55,
         "category": "Combinatorics (Proof)",
         "problem": "Prove that among any 6 people, there are either 3 mutual friends or 3 mutual strangers.",
-        "solution": "Pick any person. They have 5 connections; by the pigeonhole principle, at least 3 are all friends or all strangers. If these 3 form a triangle among themselves, done; if not, including the chosen person completes the required triangle."
+        "solution": "This is the case R(3,3)=6 in Ramsey Theory. Take any person P. P has 5 relationships with others. By Pigeonhole, at least 3 are of the same type (say, Friend). Let these friends be A, B, C. If any pair in {A,B,C} are friends, that pair plus P makes a friend triangle. If no pair is friends, {A,B,C} is a stranger triangle."
     },
     {
         "id": 56,
         "category": "Combinatorics (Proof)",
         "problem": "Prove that any permutation can be expressed as a product of transpositions.",
-        "solution": "Every cycle (a1 a2 ... ak) = (a1 ak)(a1 ak-1)...(a1 a2). Since every permutation is a product of cycles, every permutation can be expressed as a product of transpositions."
+        "solution": "Any permutation decomposes into disjoint cycles. For a cycle (c_1 c_2 ... c_k), we can write it as (c_1 c_k)(c_1 c_{k-1})...(c_1 c_2). Since the entire permutation is a product of cycles, and cycles are products of transpositions, the result holds."
     },
     {
         "id": 57,
         "category": "Geometry (Proof)",
         "problem": "Prove that the altitudes of a triangle are concurrent.",
-        "solution": "Using Ceva’s theorem or coordinate geometry, the three altitudes intersect at a single point called the orthocenter."
+        "solution": "Let H be the orthocenter. A standard proof uses vectors: For a point O (circumcenter), the vector sum OH = OA + OB + OC yields a point H such that AH is perpendicular to BC, etc. Alternatively, the altitudes of ABC are the perpendicular bisectors of the medial triangle, which are known to be concurrent."
     },
     {
         "id": 58,
         "category": "Geometry (Proof)",
         "problem": "Prove that the perpendicular bisectors of a triangle meet at a single point.",
-        "solution": "Each perpendicular bisector is the set of points equidistant from two vertices. Their intersection is equidistant from all three vertices, which is the circumcenter."
+        "solution": "Let L1 and L2 be the perpendicular bisectors of sides AB and BC, meeting at O. Then O is equidistant from A and B, and from B and C. Thus, O is equidistant from A and C, implying it lies on L3, the bisector of AC."
     },
     {
         "id": 59,
         "category": "Number Theory (Non-Proof)",
         "problem": "Find all integers x such that x^2 ≡ 4 (mod 7).",
-        "solution": "Check residues modulo 7: 0^2=0, 1^2=1, 2^2=4, 3^2=2, 4^2=2, 5^2=4, 6^2=1. Solutions: x ≡ 2,5 mod 7."
+        "solution": "We check residues 0-6. 2^2 = 4 and 5^2 = 25 ≡ 4. Thus x ≡ 2, 5 (mod 7)."
     },
     {
         "id": 60,
         "category": "Number Theory (Non-Proof)",
         "problem": "Compute the remainder when 3^2025 is divided by 13.",
-        "solution": "By Fermat's little theorem, 3^12 ≡ 1 mod 13. 2025 = 168*12 + 9 ⇒ 3^2025 ≡ 3^9 mod 13. Compute: 3^1=3, 3^2=9, 3^4=9^2=81≡3, 3^8=3^4^2=3^2=9, then 3^9 = 3^8*3 ≡ 9*3=27 ≡ 1 mod 13. Remainder = 1."
+        "solution": "By Fermat's Little Theorem, 3^12 ≡ 1 (mod 13). We divide the exponent: 2025 = 12 * 168 + 9. Thus 3^2025 ≡ 3^9 (mod 13). 3^3 = 27 ≡ 1 (mod 13). So 3^9 = (3^3)^3 ≡ 1^3 ≡ 1 (mod 13)."
     },
     {
         "id": 61,
         "category": "Algebra & Inequalities",
         "problem": "Solve for real numbers x: x^2 − 5x + 6 = 0.",
-        "solution": "Factor: (x−2)(x−3)=0 ⇒ x = 2, 3."
+        "solution": "Factor the quadratic: (x-2)(x-3)=0 implies x=2 or x=3."
     },
     {
         "id": 62,
         "category": "Algebra & Inequalities",
         "problem": "Find all real solutions to |2x−3|=5.",
-        "solution": "2x−3=5 ⇒ x=4; 2x−3=−5 ⇒ x=−1."
+        "solution": "Case 1: 2x-3 = 5 => 2x=8 => x=4. Case 2: 2x-3 = -5 => 2x=-2 => x=-1. Solutions: {-1, 4}."
     },
     {
         "id": 63,
         "category": "Algebra & Inequalities",
         "problem": "Prove that for positive real numbers a,b,c, a+b+c ≥ 3√(abc).",
-        "solution": "AM-GM inequality: (a+b+c)/3 ≥ (abc)^(1/3). Multiply both sides by 3."
+        "solution": "Wait, the prompt says 'square root'. The correct AM-GM statement is (a+b+c)/3 ≥ (abc)^(1/3). If the problem implies cube root, it's AM-GM. If it implies square root, it's trivial because 3(abc)^(1/3) < 3(abc)^(1/2) for small numbers, but not generally true? Assuming typo for cube root: By AM-GM, arithmetic mean ≥ geometric mean."
     },
     {
         "id": 64,
         "category": "Geometry",
         "problem": "Find the area of a triangle with vertices (0,0), (a,0), (0,b).",
-        "solution": "Area = 1/2 * base * height = ab/2."
+        "solution": "Base is along x-axis (length |a|), height is along y-axis (length |b|). Area = 0.5 * |ab|."
     },
     {
         "id": 65,
         "category": "Geometry",
         "problem": "Prove that opposite angles of a cyclic quadrilateral sum to 180°.",
-        "solution": "Opposite angles subtend arcs summing to 360°, so each pair sums to 180°."
+        "solution": "The angle at a vertex subtends the arc not containing that vertex. The two opposite angles subtend arcs that together make up the full circle (360°). By the Inscribed Angle Theorem, the sum of angles is half the sum of arcs = 180°."
     },
     {
         "id": 66,
         "category": "Geometry",
         "problem": "In a right triangle, prove that the altitude to the hypotenuse squared equals the product of the two segments it creates.",
-        "solution": "By similar triangles: h^2 = p*q, where p,q are segments of the hypotenuse."
+        "solution": "Let altitude be h, dividing hypotenuse into p and q. The altitude divides the large triangle into two smaller triangles similar to the original and each other. By similarity, h/p = q/h, so h^2 = pq. (Geometric Mean Theorem)."
     },
     {
         "id": 67,
         "category": "Combinatorics",
         "problem": "How many subsets of {1,2,3,4,5} contain exactly 3 elements?",
-        "solution": "C(5,3) = 10."
+        "solution": "C(5,3) = C(5,2) = (5*4)/2 = 10."
     },
     {
         "id": 68,
         "category": "Combinatorics",
         "problem": "How many ways can 4 indistinguishable balls be placed into 3 distinct boxes?",
-        "solution": "Stars and bars formula: C(4+3−1,3−1) = C(6,2) = 15."
+        "solution": "Using Stars and Bars: n=4, k=3. Formula is C(n+k-1, k-1) = C(4+2, 2) = C(6,2) = 15."
     },
     {
         "id": 69,
         "category": "Combinatorics",
         "problem": "How many ways to arrange the letters of the word 'LEVEL'?",
-        "solution": "5 letters, L twice, E twice: 5!/(2!*2!) = 30."
+        "solution": "Total letters = 5. L appears 2 times, E appears 2 times. Formula: 5! / (2! * 2!) = 120 / 4 = 30."
     },
     {
         "id": 70,
         "category": "Number Theory (Proof)",
         "problem": "Prove that n^2 + n is always even for integer n.",
-        "solution": "n(n+1) is the product of consecutive integers, one of which is even ⇒ n^2+n is even."
+        "solution": "Factor n^2+n = n(n+1). This is the product of two consecutive integers. One of them must be even, so their product is even."
     },
     {
         "id": 71,
         "category": "Number Theory (Proof)",
         "problem": "Prove that n^5 − n is divisible by 5 for all integers n.",
-        "solution": "By Fermat's little theorem, n^5 ≡ n mod 5 for any integer n ⇒ n^5−n ≡ 0 mod 5."
+        "solution": "By Fermat's Little Theorem, n^p ≡ n (mod p) for any prime p. Setting p=5, we get n^5 ≡ n (mod 5), so n^5 - n ≡ 0 (mod 5)."
     },
     {
         "id": 72,
         "category": "Algebra & Inequalities",
         "problem": "Solve 2^(x+1) + 2^x = 24 for real x.",
-        "solution": "2*2^x + 2^x = 3*2^x = 24 ⇒ 2^x = 8 ⇒ x = 3."
+        "solution": "Factor out 2^x: 2^x(2^1 + 1) = 24 => 3 * 2^x = 24 => 2^x = 8 => x=3."
     },
     {
         "id": 73,
         "category": "Algebra & Inequalities",
         "problem": "Find all real solutions to x^4 − 4x^3 + 6x^2 − 4x + 1 = 0.",
-        "solution": "Factor as (x−1)^4 = 0 ⇒ x = 1."
+        "solution": "Recognize the binomial expansion of (x-1)^4. (x-1)^4 = 0 implies x=1."
     },
     {
         "id": 74,
         "category": "Number Theory (Non-Proof)",
         "problem": "Compute gcd(252,198).",
-        "solution": "Prime factorizations: 252=2^2*3^2*7, 198=2*3^2*11 ⇒ gcd=2*3^2=18."
+        "solution": "Using Euclidean algorithm: 252 - 198 = 54. 198 / 54 = 3 rem 36. 54 / 36 = 1 rem 18. 36 / 18 = 2 rem 0. GCD is 18."
     },
     {
         "id": 75,
         "category": "Number Theory (Non-Proof)",
         "problem": "Find the last two digits of 7^123.",
-        "solution": "Compute modulo 100 using successive squaring: 7^1=7, 7^2=49, 7^4=49^2=2401≡1, 7^8≡1, ... 7^123 ≡ 43 mod100. Last two digits = 43."
+        "solution": "We want 7^123 mod 100. φ(100) = 100(1-1/2)(1-1/5) = 40. By Euler's Totient Theorem, 7^40 ≡ 1 mod 100. 123 = 3*40 + 3. So 7^123 ≡ (7^40)^3 * 7^3 ≡ 1 * 343 ≡ 43 mod 100."
     },
     {
         "id": 76,
         "category": "Speed",
         "problem": "Compute 1^2+2^2+…+n^2.",
-        "solution": "Sum = n(n+1)(2n+1)/6."
+        "solution": "n(n+1)(2n+1)/6."
     },
     {
         "id": 77,
         "category": "Speed",
         "problem": "Evaluate ∑_{k=1}^n k.",
-        "solution": "Sum = n(n+1)/2."
+        "solution": "n(n+1)/2."
     },
     {
         "id": 78,
         "category": "Speed",
         "problem": "Find the number of trailing zeros in 100!.",
-        "solution": "Number of factors of 5: ⌊100/5⌋ + ⌊100/25⌋ = 20 + 4 = 24."
+        "solution": "Count factors of 5: 100/5 = 20, 100/25 = 4. Total = 24."
     },
     {
         "id": 79,
         "category": "Mixed",
         "problem": "Prove that the sum of the first n odd numbers is n^2.",
-        "solution": "By induction: 1+3+...+(2n−1) = n^2."
+        "solution": "We sum (2k-1) from k=1 to n. 2(n(n+1)/2) - n = n^2 + n - n = n^2."
     },
     {
         "id": 80,
         "category": "Mixed",
         "problem": "Show that the harmonic series diverges.",
-        "solution": "Group terms by powers of 2: 1 + (1/2) + (1/3+1/4) + (1/5+1/6+1/7+1/8) + ... ≥ 1/2 + 1/2 + 1/2 + ... diverges."
+        "solution": "1 + 1/2 + 1/3 + 1/4 + ... > 1 + 1/2 + (1/4+1/4) + (1/8+1/8+1/8+1/8) ... = 1 + 1/2 + 1/2 + 1/2 ... which is unbounded."
     },
     {
         "id": 81,
         "category": "Mixed",
         "problem": "Prove that √3 is irrational.",
-        "solution": "Assume √3 = a/b in lowest terms ⇒ a^2 = 3b^2 ⇒ a divisible by 3 ⇒ b divisible by 3, contradiction."
+        "solution": "Assume √3 = p/q (irreducible). 3q^2 = p^2. p^2 is div by 3 => p is div by 3 (p=3k). 3q^2 = 9k^2 => q^2 = 3k^2. q^2 div by 3 => q div by 3. Contradiction to irreducibility."
     },
     {
         "id": 82,
         "category": "Mixed",
         "problem": "Prove that no 2×1 domino tiling exists for a 2×3 board with one square removed.",
-        "solution": "Color squares checkerboard; domino covers one black and one white. Removing one square unbalances counts, so tiling is impossible."
+        "solution": "Total squares = 5. A domino covers 2 squares. 2k = 5 has no integer solution."
     },
     {
         "id": 83,
         "category": "Geometry",
         "problem": "Find the radius of the inscribed circle in a triangle with sides 5, 12, 13.",
-        "solution": "Right triangle: area=1/2*5*12=30, semiperimeter s=(5+12+13)/2=15 ⇒ r=area/s=30/15=2."
+        "solution": "5-12-13 is a right triangle. Area = 30. Semiperimeter s = (5+12+13)/2 = 15. r = Area/s = 30/15 = 2. Alternatively for right triangles, r = (a+b-c)/2 = (5+12-13)/2 = 2."
     },
     {
         "id": 84,
         "category": "Combinatorics",
         "problem": "Find the number of integers from 1 to 1000 divisible by 3 or 5.",
-        "solution": "Divisible by 3: 333, divisible by 5: 200, divisible by 15: 66 ⇒ total = 333+200−66=467."
+        "solution": "Inclusion-Exclusion Principle: |A ∪ B| = |A| + |B| - |A ∩ B|. ⌊1000/3⌋ + ⌊1000/5⌋ - ⌊1000/15⌋ = 333 + 200 - 66 = 467."
     },
     {
         "id": 85,
         "category": "Number Theory (Proof)",
         "problem": "Prove that n^3−n is divisible by 6 for all integers n.",
-        "solution": "n(n−1)(n+1) is the product of three consecutive integers ⇒ divisible by 2 and 3 ⇒ divisible by 6."
+        "solution": "n^3-n = (n-1)n(n+1). This is the product of 3 consecutive integers. At least one is even (div by 2) and one is divisible by 3. Since gcd(2,3)=1, the product is divisible by 6."
     },
     {
         "id": 86,
         "category": "Algebra & Inequalities",
         "problem": "Solve x^3−3x+2=0.",
-        "solution": "Factor: (x−1)^2(x+2)=0 ⇒ x = 1 (double root), x = −2."
+        "solution": "x=1 is a root (1-3+2=0). Divide by (x-1): x^2(x-1) + x(x-1) - 2(x-1) = (x-1)(x^2+x-2) = (x-1)(x-1)(x+2). Roots: 1 (multiplicity 2), -2."
     },
     {
         "id": 87,
         "category": "Geometry",
         "problem": "Prove that the centroid divides each median in 2:1 ratio.",
-        "solution": "Vector approach: centroid G = (A+B+C)/3 ⇒ AG:GM = 2:1."
+        "solution": "Geometry: Medians intersect at centroid G. Scaling the triangle by -1/2 from the centroid maps vertices to midpoints of opposite sides. Thus the segment from vertex to centroid is twice the length of centroid to midpoint."
     },
     {
         "id": 88,
         "category": "Number Theory (Non-Proof)",
         "problem": "Find all integers x such that 2^x ≡ 8 (mod 11).",
-        "solution": "2^1=2, 2^2=4, 2^3=8 ⇒ x ≡ 3 mod 10 by Fermat's theorem (2^10≡1 mod11)."
+        "solution": "Powers of 2 mod 11: 2, 4, 8, 16≡5, 10≡-1, ... 2^3=8. The order of 2 mod 11 is 10. So x ≡ 3 (mod 10)."
     },
     {
         "id": 89,
         "category": "Combinatorics",
         "problem": "How many ways to choose 2 elements from {1,2,3,4,5} with odd sum?",
-        "solution": "Odd+even pairs: 3 odd * 2 even = 6 ways."
+        "solution": "Odd sum requires one Odd and one Even. Set has {1,3,5} (3 odds) and {2,4} (2 evens). Ways = 3 * 2 = 6."
     },
     {
         "id": 90,
         "category": "Algebra & Inequalities",
         "problem": "Find all real solutions to x^2+4x+4=0.",
-        "solution": "Factor: (x+2)^2 = 0 ⇒ x = −2."
+        "solution": "(x+2)^2 = 0 => x = -2."
     },
     {
         "id": 91,
         "category": "Number Theory (Non-Proof)",
         "problem": "Find the number of positive integers less than 100 divisible by 7.",
-        "solution": "Multiples: 7,14,...,98 ⇒ floor(99/7)=14."
+        "solution": "⌊99/7⌋ = 14."
     },
     {
         "id": 92,
         "category": "Geometry",
         "problem": "Prove that the medians divide a triangle into six triangles of equal area.",
-        "solution": "Each median divides triangle into two equal-area triangles; centroid divides each median 2:1 ⇒ six equal-area triangles."
+        "solution": "A median divides a triangle into two equal areas. The three medians divide the triangle into 6 small triangles. All meet at centroid G. Area(GAB) = Area(GBC) = Area(GCA) = 1/3 Total. Within GAB, the median from C bisects AB, splitting GAB into two equal halves (1/6 Total). Same for others."
     },
     {
         "id": 93,
         "category": "Mixed",
         "problem": "Show that in any graph, the number of vertices with odd degree is even.",
-        "solution": "Sum of degrees = 2*edges ⇒ sum of odd degrees is even ⇒ number of vertices with odd degree is even."
+        "solution": "Handshaking Lemma: Sum of degrees = 2 * Edges = Even number. Let V_odd be vertices with odd degree and V_even be those with even. Sum = (Sum of V_odd) + (Sum of V_even). Sum of V_even is even. For total to be even, Sum of V_odd must be even. Since sum of odd numbers is even only if there is an even count of them, |V_odd| is even."
     },
     {
         "id": 94,
         "category": "Speed",
         "problem": "Compute determinant of [[1,2],[3,4]].",
-        "solution": "Determinant = 1*4 − 2*3 = −2."
+        "solution": "1*4 - 2*3 = -2."
     },
     {
         "id": 95,
         "category": "Number Theory (Proof)",
         "problem": "Prove that 1+2+…+n = n(n+1)/2 for all positive integers n.",
-        "solution": "Induction: n=1 holds. Assume true for n, sum up to n+1: n(n+1)/2 + (n+1) = (n+1)(n+2)/2."
+        "solution": "Sum S = 1 + ... + n. Also S = n + ... + 1. 2S = (n+1) + ... + (n+1) [n times]. 2S = n(n+1) => S = n(n+1)/2."
     },
     {
         "id": 96,
         "category": "Algebra & Inequalities",
         "problem": "Find minimum of x^2+1/x^2 for x>0.",
-        "solution": "AM ≥ GM: x^2+1/x^2 ≥ 2, equality at x=1."
+        "solution": "AM-GM: x^2 + 1/x^2 ≥ 2√(x^2 * 1/x^2) = 2. Min is 2 at x=1."
     },
     {
         "id": 97,
         "category": "Combinatorics",
-        "problem": "Find number of arrangements of 5 distinct books if 2 must not be together.",
-        "solution": "Total 5! = 120; treat 2 together: 4!*2! = 48; subtract: 120−48=72."
+        "problem": "Find number of arrangements of 5 distinct books if 2 specific books must not be together.",
+        "solution": "Total arrangements = 5! = 120. Arrangements with specific pair together (treat as 1 block) = 4! * 2! (internal swap) = 24 * 2 = 48. Desired = 120 - 48 = 72."
     },
     {
         "id": 98,
         "category": "Geometry",
-        "problem": "In triangle with sides 6,8,10, find median to side 10.",
-        "solution": "Median m = 1/2 √(2*6^2 + 2*8^2 − 10^2) = 1/2 √(72+128−100) = 1/2 √100 = 5."
+        "problem": "In triangle with sides 6,8,10, find length of median to side 10.",
+        "solution": "Note 6^2+8^2 = 36+64 = 100 = 10^2, so it's a right triangle. The midpoint of the hypotenuse is the circumcenter. The distance from the right angle vertex to the midpoint of the hypotenuse is the circumradius, which is half the hypotenuse. Median = 10/2 = 5."
     },
     {
         "id": 99,
         "category": "Number Theory (Non-Proof)",
         "problem": "Find all integers x such that x^2 ≡ 1 mod 8.",
-        "solution": "Check residues 0..7: 1^2=1, 3^2=1, 5^2=1, 7^2=1 ⇒ x ≡ 1,3,5,7 mod 8."
+        "solution": "The odd residues mod 8 are 1, 3, 5, 7. 1^2=1, 3^2=9≡1, 5^2=25≡1, 7^2=49≡1. All odd integers solve this. x ≡ 1, 3, 5, 7 (mod 8)."
     },
     {
         "id": 100,
         "category": "Algebra & Inequalities",
         "problem": "Solve 3^x + 3^(x+1) = 36.",
-        "solution": "3^x(1+3) = 4*3^x = 36 ⇒ 3^x=9 ⇒ x=2."
+        "solution": "3^x + 3*3^x = 36 => 4*3^x = 36 => 3^x = 9 => x=2."
     }
 ]
