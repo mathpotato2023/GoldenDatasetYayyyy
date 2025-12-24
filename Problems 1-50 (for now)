@@ -1,0 +1,302 @@
+[
+    {
+        "id": 1,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that for any integer n > 1, if n divides (n−1)!, then n is composite.",
+        "solution": "If n were prime, Wilson’s Theorem gives (n−1)! ≡ −1 (mod n), contradicting n | (n−1)!. Hence n must be composite."
+    },
+    {
+        "id": 2,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that there are infinitely many primes congruent to 1 modulo 4.",
+        "solution": "Assume finitely many such primes p1,…,pk. Let N = 4p1p2…pk + 1. Any prime divisor q of N satisfies q ≡ 1 (mod 4); otherwise −1 would be a quadratic residue modulo q, impossible if q ≡ 3 (mod 4). Contradiction."
+    },
+    {
+        "id": 3,
+        "category": "Number Theory (Proof)",
+        "problem": "Show that if a² divides b² for integers a,b, then a divides b.",
+        "solution": "If p^k | a, then p^{2k} | b², so p^k | b. This holds for every prime divisor of a, hence a | b."
+    },
+    {
+        "id": 4,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that no integer of the form n² + n + 1 is divisible by 5.",
+        "solution": "Checking n ≡ 0,1,2,3,4 (mod 5), the expression is congruent to 1,3,2,3,1 respectively, never 0."
+    },
+    {
+        "id": 5,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that for all integers n ≥ 1, gcd(Fn, F_{n+1}) = 1.",
+        "solution": "Any common divisor of Fn and F_{n+1} divides F_{n+1}−Fn = F_{n−1}. Repeating gives it divides F1 = 1, so the gcd is 1."
+    },
+    {
+        "id": 6,
+        "category": "Algebra / Inequalities (Proof)",
+        "problem": "Prove that for positive real numbers a,b,c, \n\\[ \\frac{a^2}{b+c} + \\frac{b^2}{c+a} + \\frac{c^2}{a+b} \\ge \\frac{a+b+c}{2}. \\]",
+        "solution": "By the Cauchy–Schwarz inequality in the form \\((\\sum a_i^2/b_i)(\\sum b_i) \\ge (\\sum a_i)^2\\), we have\n\\[\\left(\\frac{a^2}{b+c}+\\frac{b^2}{c+a}+\\frac{c^2}{a+b}\\right)((b+c)+(c+a)+(a+b)) \\ge (a+b+c)^2.\\]\nSince \\((b+c)+(c+a)+(a+b)=2(a+b+c)\\), dividing both sides gives\n\\[\\frac{a^2}{b+c}+\\frac{b^2}{c+a}+\\frac{c^2}{a+b} \\ge \\frac{(a+b+c)^2}{2(a+b+c)} = \\frac{a+b+c}{2}.\\]"
+    },
+    {
+        "id": 7,
+        "category": "Algebra / Inequalities (Proof)",
+        "problem": "Let x,y,z>0 with xyz=1. Prove that x+y+z ≥ xy+yz+zx.",
+        "solution": "Using AM-GM and the substitution x = a/b, y = b/c, z = c/a with positive a,b,c, we reduce to the inequality\nx+y+z ≥ xy+yz+zx, which holds by summing cyclic AM ≥ GM inequalities: x+y ≥ 2√xy, etc. Adding these gives the desired result."
+    },
+    {
+        "id": 8,
+        "category": "Algebra / Inequalities (Proof)",
+        "problem": "Prove that for all real x, x⁴ + 4 ≥ 4x.",
+        "solution": "Rewrite as (x²−1)² + 2(x−1)² ≥ 0, which is always true."
+    },
+    {
+        "id": 9,
+        "category": "Algebra / Inequalities (Proof)",
+        "problem": "Prove that for all real numbers a,b,c > -1,\n\\[ \\frac{(a-1)^2}{a+1} + \\frac{(b-1)^2}{b+1} + \\frac{(c-1)^2}{c+1} \\ge 0. \\]",
+        "solution": "For any real x > -1, the denominator x+1 is positive and the numerator (x−1)^2 is nonnegative, so each term is nonnegative. Therefore, the sum is nonnegative."
+    },
+    {
+        "id": 10,
+        "category": "Algebra / Inequalities (Proof)",
+        "problem": "Show that for real numbers a,b,c, a²+b²+c² ≥ ab+bc+ca.",
+        "solution": "Since (a−b)²+(b−c)²+(c−a)² ≥ 0, expanding yields the inequality."
+    },
+    {
+        "id": 11,
+        "category": "Combinatorics (Proof)",
+        "problem": "Prove that among any n+1 integers, there exist two whose difference is divisible by n.",
+        "solution": "Reducing modulo n gives n residue classes. By pigeonhole principle, two integers share the same residue."
+    },
+    {
+        "id": 12,
+        "category": "Combinatorics (Proof)",
+        "problem": "Show that any graph with more than (n−1)(n−2)/2 edges contains a triangle.",
+        "solution": "By Turán’s theorem, the maximum number of edges in a triangle-free graph on n vertices is (n−1)(n−2)/2."
+    },
+    {
+        "id": 13,
+        "category": "Combinatorics (Proof)",
+        "problem": "Prove that in any group of six people, there are either three mutual friends or three mutual strangers.",
+        "solution": "Fix one person. Among the five others, at least three are mutual friends or mutual strangers with them. Applying pigeonhole gives a monochromatic triangle."
+    },
+    {
+        "id": 14,
+        "category": "Combinatorics (Proof)",
+        "problem": "Prove that the number of subsets of {1,2,…,n} with even sum equals the number with odd sum.",
+        "solution": "The map S ↦ S ⊕ {1} is a bijection that toggles parity of the sum."
+    },
+    {
+        "id": 15,
+        "category": "Combinatorics (Proof)",
+        "problem": "Show that any permutation of {1,2,…,n} can be written as a product of transpositions.",
+        "solution": "Every cycle (a1 a2 … ak) equals (a1 ak)(a1 ak−1)…(a1 a2)."
+    },
+    {
+        "id": 16,
+        "category": "Geometry (Proof)",
+        "problem": "Prove that the medians of a triangle intersect at a single point.",
+        "solution": "Using vectors, the medians intersect at (A+B+C)/3, called the centroid."
+    },
+    {
+        "id": 17,
+        "category": "Geometry (Proof)",
+        "problem": "Show that the angle bisectors of a triangle meet at one point.",
+        "solution": "Points on an angle bisector are equidistant from the sides. The unique point equidistant from all three sides is the incenter."
+    },
+    {
+        "id": 18,
+        "category": "Geometry (Proof)",
+        "problem": "Prove that opposite angles of a cyclic quadrilateral sum to 180°.",
+        "solution": "Opposite angles subtend complementary arcs, whose measures sum to 360°, so each pair sums to 180°."
+    },
+    {
+        "id": 19,
+        "category": "Geometry (Proof)",
+        "problem": "Show that the perpendicular bisectors of a triangle’s sides are concurrent.",
+        "solution": "Each bisector is the locus of points equidistant from two vertices; their intersection is equidistant from all three."
+    },
+    {
+        "id": 20,
+        "category": "Geometry (Proof)",
+        "problem": "Prove that the altitudes of a triangle are concurrent.",
+        "solution": "In coordinates, the altitudes intersect at a unique point, the orthocenter."
+    },
+    {
+        "id": 21,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Find all integers x such that x² ≡ 1 (mod 15).",
+        "solution": "Solving modulo 3 and 5 gives x ≡ ±1 (mod 15)."
+    },
+    {
+        "id": 22,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Find all integer solutions to x² − 5y² = 1.",
+        "solution": "This Pell equation has fundamental solution (9,4). All solutions are given by powers of 9+4√5."
+    },
+    {
+        "id": 23,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Compute the highest power of 2 dividing 100!.",
+        "solution": "Using Legendre’s formula gives 50+25+12+6+3+1 = 97."
+    },
+    {
+        "id": 24,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Solve x³ ≡ 1 (mod 7).",
+        "solution": "Testing residues modulo 7 yields x ≡ 1,2,4."
+    },
+    {
+        "id": 25,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Find all n such that φ(n)=4.",
+        "solution": "Checking cases gives n=5,8,10,12."
+    },
+    {
+        "id": 26,
+        "category": "Algebra (Functional Equations)",
+        "problem": "Find all continuous functions f:ℝ→ℝ such that f(x+y)=f(x)+f(y) and f(1)=2.",
+        "solution": "Continuity implies linearity, so f(x)=2x."
+    },
+    {
+        "id": 27,
+        "category": "Algebra (Functional Equations)",
+        "problem": "Find all continuous functions f:ℝ→ℝ such that\n\\[ f(x)f(y)=f(x+y) \\quad \\text{for all real } x,y. \\]",
+        "solution": "If f≡0, the equation holds. Otherwise, f(x)>0 for all x. Taking logarithms gives g(x)=ln f(x) satisfying g(x+y)=g(x)+g(y). By continuity, g(x)=cx for some constant c, hence f(x)=e^{cx}."
+    },
+    {
+        "id": 28,
+        "category": "Algebra (Polynomials)",
+        "problem": "If P(x)=P(1−x) for all x, show P can be written as a polynomial in x(1−x).",
+        "solution": "Consider Q(x)=P(x)−P(0). Then Q(x)=Q(1−x). Expand Q in powers of (x−1/2). Since Q(x) is symmetric about x=1/2, it can be expressed as a polynomial in (x−1/2)^2. Substituting (x−1/2)^2 = 1/4 − x(1−x) gives Q as a polynomial in x(1−x), and adding back P(0) completes P(x)."
+    },
+    {
+        "id": 29,
+        "category": "Algebra (Inequalities)",
+        "problem": "Prove that for x>0, x+1/x ≥ 2.",
+        "solution": "By AM-GM, (x+1/x)/2 ≥ √(x·1/x)=1, so x+1/x ≥ 2."
+    },
+    {
+        "id": 30,
+        "category": "Algebra (Inequalities)",
+        "problem": "Find the minimum of x²+1/x² for x>0.",
+        "solution": "By AM-GM, x²+1/x² ≥ 2 with equality at x=1."
+    },
+    {
+        "id": 31,
+        "category": "Combinatorics (Counting)",
+        "problem": "How many subsets of {1,2,…,n} have exactly k elements?",
+        "solution": "The answer is C(n,k)."
+    },
+    {
+        "id": 32,
+        "category": "Combinatorics (Graph Theory)",
+        "problem": "Show that a tree with n vertices has n−1 edges.",
+        "solution": "Induct on n by removing a leaf."
+    },
+    {
+        "id": 33,
+        "category": "Combinatorics (Invariants)",
+        "problem": "A move flips exactly two bits in a binary string. Prove parity of the number of 1s is invariant.",
+        "solution": "Flipping two bits changes the count of 1s by an even number."
+    },
+    {
+        "id": 34,
+        "category": "Combinatorics (Extremal)",
+        "problem": "What is the maximum number of edges in a bipartite graph with n vertices?",
+        "solution": "The maximum is ⌊n²/4⌋."
+    },
+    {
+        "id": 35,
+        "category": "Combinatorics (Pigeonhole)",
+        "problem": "Show that among any 13 integers, two have the same remainder mod 12.",
+        "solution": "There are only 12 residue classes modulo 12."
+    },
+    {
+        "id": 36,
+        "category": "Geometry (Coordinate)",
+        "problem": "Find the area of a triangle with vertices (0,0),(a,0),(0,b).",
+        "solution": "The area is ab/2."
+    },
+    {
+        "id": 37,
+        "category": "Geometry (Vector)",
+        "problem": "Show that the centroid of a triangle is the average of its vertex vectors.",
+        "solution": "Vector medians intersect at (A+B+C)/3."
+    },
+    {
+        "id": 38,
+        "category": "Geometry (Transformations)",
+        "problem": "Show that a 180° rotation is equivalent to point reflection.",
+        "solution": "Each point maps to its opposite across the center."
+    },
+    {
+        "id": 39,
+        "category": "Geometry (Loci)",
+        "problem": "Find the locus of points equidistant from two fixed points.",
+        "solution": "The perpendicular bisector of the segment."
+    },
+    {
+        "id": 40,
+        "category": "Geometry (Inversion)",
+        "problem": "What happens to a line not through the center under inversion?",
+        "solution": "It maps to a circle passing through the center."
+    },
+    {
+        "id": 41,
+        "category": "Mixed",
+        "problem": "Prove that the sum of the first n odd numbers is n².",
+        "solution": "By induction or pairing consecutive odd numbers."
+    },
+    {
+        "id": 42,
+        "category": "Mixed",
+        "problem": "Show that a graph with odd total degree sum has an even number of vertices with odd degree.",
+        "solution": "By the handshaking lemma, the sum of degrees is twice the number of edges. Since the sum of degrees of vertices with odd degree must be even, the number of such vertices is even."
+    },
+    {
+        "id": 43,
+        "category": "Mixed",
+        "problem": "Prove that √2 is irrational.",
+        "solution": "Assume √2=a/b in lowest terms. Then a²=2b² implies both a,b even, contradiction."
+    },
+    {
+        "id": 44,
+        "category": "Mixed",
+        "problem": "Show that the harmonic series diverges.",
+        "solution": "Grouping terms by powers of two gives a divergent lower bound."
+    },
+    {
+        "id": 45,
+        "category": "Mixed",
+        "problem": "Prove that no domino tiling exists for a chessboard with one corner removed.",
+        "solution": "Each domino covers one black and one white square; the coloring is unbalanced."
+    },
+    {
+        "id": 46,
+        "category": "Speed",
+        "problem": "Compute 1²+2²+…+n².",
+        "solution": "The sum is n(n+1)(2n+1)/6."
+    },
+    {
+        "id": 47,
+        "category": "Speed",
+        "problem": "Solve x²−5x+6=0.",
+        "solution": "The solutions are x=2,3."
+    },
+    {
+        "id": 48,
+        "category": "Speed",
+        "problem": "Find the number of trailing zeros of 50!.",
+        "solution": "⌊50/5⌋+⌊50/25⌋ = 12."
+    },
+    {
+        "id": 49,
+        "category": "Speed",
+        "problem": "Evaluate ∑_{k=1}^n k.",
+        "solution": "The sum is n(n+1)/2."
+    },
+    {
+        "id": 50,
+        "category": "Speed",
+        "problem": "Find the determinant of [[1,2],[3,4]].",
+        "solution": "The determinant is −2."
+    }
+]
