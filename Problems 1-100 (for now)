@@ -298,5 +298,305 @@
         "category": "Speed",
         "problem": "Find the determinant of [[1,2],[3,4]].",
         "solution": "The determinant is −2."
+    },
+    {
+        "id": 51,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that for any integer n > 1, n^2 − 1 is divisible by 8 if n is odd.",
+        "solution": "If n is odd, n = 2k+1. Then n^2−1 = (2k+1)^2−1 = 4k(k+1). Among consecutive integers k and k+1, one is even, so 4k(k+1) is divisible by 8."
+    },
+    {
+        "id": 52,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that the sum of any three consecutive integers is divisible by 3.",
+        "solution": "Let the integers be n, n+1, n+2. Sum = n+(n+1)+(n+2) = 3n+3 = 3(n+1), divisible by 3."
+    },
+    {
+        "id": 53,
+        "category": "Algebra / Inequalities (Proof)",
+        "problem": "Prove that for positive real numbers a,b, (a+b)/2 ≥ √(ab).",
+        "solution": "AM-GM inequality: (a+b)/2 ≥ √(ab), equality holds if a = b."
+    },
+    {
+        "id": 54,
+        "category": "Algebra / Inequalities (Proof)",
+        "problem": "Prove that for any real numbers x, y, x^2 + y^2 ≥ 2xy.",
+        "solution": "x^2 + y^2 − 2xy = (x−y)^2 ≥ 0 ⇒ x^2 + y^2 ≥ 2xy."
+    },
+    {
+        "id": 55,
+        "category": "Combinatorics (Proof)",
+        "problem": "Prove that among any 6 people, there are either 3 mutual friends or 3 mutual strangers.",
+        "solution": "Pick any person. They have 5 connections; by the pigeonhole principle, at least 3 are all friends or all strangers. If these 3 form a triangle among themselves, done; if not, including the chosen person completes the required triangle."
+    },
+    {
+        "id": 56,
+        "category": "Combinatorics (Proof)",
+        "problem": "Prove that any permutation can be expressed as a product of transpositions.",
+        "solution": "Every cycle (a1 a2 ... ak) = (a1 ak)(a1 ak-1)...(a1 a2). Since every permutation is a product of cycles, every permutation can be expressed as a product of transpositions."
+    },
+    {
+        "id": 57,
+        "category": "Geometry (Proof)",
+        "problem": "Prove that the altitudes of a triangle are concurrent.",
+        "solution": "Using Ceva’s theorem or coordinate geometry, the three altitudes intersect at a single point called the orthocenter."
+    },
+    {
+        "id": 58,
+        "category": "Geometry (Proof)",
+        "problem": "Prove that the perpendicular bisectors of a triangle meet at a single point.",
+        "solution": "Each perpendicular bisector is the set of points equidistant from two vertices. Their intersection is equidistant from all three vertices, which is the circumcenter."
+    },
+    {
+        "id": 59,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Find all integers x such that x^2 ≡ 4 (mod 7).",
+        "solution": "Check residues modulo 7: 0^2=0, 1^2=1, 2^2=4, 3^2=2, 4^2=2, 5^2=4, 6^2=1. Solutions: x ≡ 2,5 mod 7."
+    },
+    {
+        "id": 60,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Compute the remainder when 3^2025 is divided by 13.",
+        "solution": "By Fermat's little theorem, 3^12 ≡ 1 mod 13. 2025 = 168*12 + 9 ⇒ 3^2025 ≡ 3^9 mod 13. Compute: 3^1=3, 3^2=9, 3^4=9^2=81≡3, 3^8=3^4^2=3^2=9, then 3^9 = 3^8*3 ≡ 9*3=27 ≡ 1 mod 13. Remainder = 1."
+    },
+    {
+        "id": 61,
+        "category": "Algebra & Inequalities",
+        "problem": "Solve for real numbers x: x^2 − 5x + 6 = 0.",
+        "solution": "Factor: (x−2)(x−3)=0 ⇒ x = 2, 3."
+    },
+    {
+        "id": 62,
+        "category": "Algebra & Inequalities",
+        "problem": "Find all real solutions to |2x−3|=5.",
+        "solution": "2x−3=5 ⇒ x=4; 2x−3=−5 ⇒ x=−1."
+    },
+    {
+        "id": 63,
+        "category": "Algebra & Inequalities",
+        "problem": "Prove that for positive real numbers a,b,c, a+b+c ≥ 3√(abc).",
+        "solution": "AM-GM inequality: (a+b+c)/3 ≥ (abc)^(1/3). Multiply both sides by 3."
+    },
+    {
+        "id": 64,
+        "category": "Geometry",
+        "problem": "Find the area of a triangle with vertices (0,0), (a,0), (0,b).",
+        "solution": "Area = 1/2 * base * height = ab/2."
+    },
+    {
+        "id": 65,
+        "category": "Geometry",
+        "problem": "Prove that opposite angles of a cyclic quadrilateral sum to 180°.",
+        "solution": "Opposite angles subtend arcs summing to 360°, so each pair sums to 180°."
+    },
+    {
+        "id": 66,
+        "category": "Geometry",
+        "problem": "In a right triangle, prove that the altitude to the hypotenuse squared equals the product of the two segments it creates.",
+        "solution": "By similar triangles: h^2 = p*q, where p,q are segments of the hypotenuse."
+    },
+    {
+        "id": 67,
+        "category": "Combinatorics",
+        "problem": "How many subsets of {1,2,3,4,5} contain exactly 3 elements?",
+        "solution": "C(5,3) = 10."
+    },
+    {
+        "id": 68,
+        "category": "Combinatorics",
+        "problem": "How many ways can 4 indistinguishable balls be placed into 3 distinct boxes?",
+        "solution": "Stars and bars formula: C(4+3−1,3−1) = C(6,2) = 15."
+    },
+    {
+        "id": 69,
+        "category": "Combinatorics",
+        "problem": "How many ways to arrange the letters of the word 'LEVEL'?",
+        "solution": "5 letters, L twice, E twice: 5!/(2!*2!) = 30."
+    },
+    {
+        "id": 70,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that n^2 + n is always even for integer n.",
+        "solution": "n(n+1) is the product of consecutive integers, one of which is even ⇒ n^2+n is even."
+    },
+    {
+        "id": 71,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that n^5 − n is divisible by 5 for all integers n.",
+        "solution": "By Fermat's little theorem, n^5 ≡ n mod 5 for any integer n ⇒ n^5−n ≡ 0 mod 5."
+    },
+    {
+        "id": 72,
+        "category": "Algebra & Inequalities",
+        "problem": "Solve 2^(x+1) + 2^x = 24 for real x.",
+        "solution": "2*2^x + 2^x = 3*2^x = 24 ⇒ 2^x = 8 ⇒ x = 3."
+    },
+    {
+        "id": 73,
+        "category": "Algebra & Inequalities",
+        "problem": "Find all real solutions to x^4 − 4x^3 + 6x^2 − 4x + 1 = 0.",
+        "solution": "Factor as (x−1)^4 = 0 ⇒ x = 1."
+    },
+    {
+        "id": 74,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Compute gcd(252,198).",
+        "solution": "Prime factorizations: 252=2^2*3^2*7, 198=2*3^2*11 ⇒ gcd=2*3^2=18."
+    },
+    {
+        "id": 75,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Find the last two digits of 7^123.",
+        "solution": "Compute modulo 100 using successive squaring: 7^1=7, 7^2=49, 7^4=49^2=2401≡1, 7^8≡1, ... 7^123 ≡ 43 mod100. Last two digits = 43."
+    },
+    {
+        "id": 76,
+        "category": "Speed",
+        "problem": "Compute 1^2+2^2+…+n^2.",
+        "solution": "Sum = n(n+1)(2n+1)/6."
+    },
+    {
+        "id": 77,
+        "category": "Speed",
+        "problem": "Evaluate ∑_{k=1}^n k.",
+        "solution": "Sum = n(n+1)/2."
+    },
+    {
+        "id": 78,
+        "category": "Speed",
+        "problem": "Find the number of trailing zeros in 100!.",
+        "solution": "Number of factors of 5: ⌊100/5⌋ + ⌊100/25⌋ = 20 + 4 = 24."
+    },
+    {
+        "id": 79,
+        "category": "Mixed",
+        "problem": "Prove that the sum of the first n odd numbers is n^2.",
+        "solution": "By induction: 1+3+...+(2n−1) = n^2."
+    },
+    {
+        "id": 80,
+        "category": "Mixed",
+        "problem": "Show that the harmonic series diverges.",
+        "solution": "Group terms by powers of 2: 1 + (1/2) + (1/3+1/4) + (1/5+1/6+1/7+1/8) + ... ≥ 1/2 + 1/2 + 1/2 + ... diverges."
+    },
+    {
+        "id": 81,
+        "category": "Mixed",
+        "problem": "Prove that √3 is irrational.",
+        "solution": "Assume √3 = a/b in lowest terms ⇒ a^2 = 3b^2 ⇒ a divisible by 3 ⇒ b divisible by 3, contradiction."
+    },
+    {
+        "id": 82,
+        "category": "Mixed",
+        "problem": "Prove that no 2×1 domino tiling exists for a 2×3 board with one square removed.",
+        "solution": "Color squares checkerboard; domino covers one black and one white. Removing one square unbalances counts, so tiling is impossible."
+    },
+    {
+        "id": 83,
+        "category": "Geometry",
+        "problem": "Find the radius of the inscribed circle in a triangle with sides 5, 12, 13.",
+        "solution": "Right triangle: area=1/2*5*12=30, semiperimeter s=(5+12+13)/2=15 ⇒ r=area/s=30/15=2."
+    },
+    {
+        "id": 84,
+        "category": "Combinatorics",
+        "problem": "Find the number of integers from 1 to 1000 divisible by 3 or 5.",
+        "solution": "Divisible by 3: 333, divisible by 5: 200, divisible by 15: 66 ⇒ total = 333+200−66=467."
+    },
+    {
+        "id": 85,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that n^3−n is divisible by 6 for all integers n.",
+        "solution": "n(n−1)(n+1) is the product of three consecutive integers ⇒ divisible by 2 and 3 ⇒ divisible by 6."
+    },
+    {
+        "id": 86,
+        "category": "Algebra & Inequalities",
+        "problem": "Solve x^3−3x+2=0.",
+        "solution": "Factor: (x−1)^2(x+2)=0 ⇒ x = 1 (double root), x = −2."
+    },
+    {
+        "id": 87,
+        "category": "Geometry",
+        "problem": "Prove that the centroid divides each median in 2:1 ratio.",
+        "solution": "Vector approach: centroid G = (A+B+C)/3 ⇒ AG:GM = 2:1."
+    },
+    {
+        "id": 88,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Find all integers x such that 2^x ≡ 8 (mod 11).",
+        "solution": "2^1=2, 2^2=4, 2^3=8 ⇒ x ≡ 3 mod 10 by Fermat's theorem (2^10≡1 mod11)."
+    },
+    {
+        "id": 89,
+        "category": "Combinatorics",
+        "problem": "How many ways to choose 2 elements from {1,2,3,4,5} with odd sum?",
+        "solution": "Odd+even pairs: 3 odd * 2 even = 6 ways."
+    },
+    {
+        "id": 90,
+        "category": "Algebra & Inequalities",
+        "problem": "Find all real solutions to x^2+4x+4=0.",
+        "solution": "Factor: (x+2)^2 = 0 ⇒ x = −2."
+    },
+    {
+        "id": 91,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Find the number of positive integers less than 100 divisible by 7.",
+        "solution": "Multiples: 7,14,...,98 ⇒ floor(99/7)=14."
+    },
+    {
+        "id": 92,
+        "category": "Geometry",
+        "problem": "Prove that the medians divide a triangle into six triangles of equal area.",
+        "solution": "Each median divides triangle into two equal-area triangles; centroid divides each median 2:1 ⇒ six equal-area triangles."
+    },
+    {
+        "id": 93,
+        "category": "Mixed",
+        "problem": "Show that in any graph, the number of vertices with odd degree is even.",
+        "solution": "Sum of degrees = 2*edges ⇒ sum of odd degrees is even ⇒ number of vertices with odd degree is even."
+    },
+    {
+        "id": 94,
+        "category": "Speed",
+        "problem": "Compute determinant of [[1,2],[3,4]].",
+        "solution": "Determinant = 1*4 − 2*3 = −2."
+    },
+    {
+        "id": 95,
+        "category": "Number Theory (Proof)",
+        "problem": "Prove that 1+2+…+n = n(n+1)/2 for all positive integers n.",
+        "solution": "Induction: n=1 holds. Assume true for n, sum up to n+1: n(n+1)/2 + (n+1) = (n+1)(n+2)/2."
+    },
+    {
+        "id": 96,
+        "category": "Algebra & Inequalities",
+        "problem": "Find minimum of x^2+1/x^2 for x>0.",
+        "solution": "AM ≥ GM: x^2+1/x^2 ≥ 2, equality at x=1."
+    },
+    {
+        "id": 97,
+        "category": "Combinatorics",
+        "problem": "Find number of arrangements of 5 distinct books if 2 must not be together.",
+        "solution": "Total 5! = 120; treat 2 together: 4!*2! = 48; subtract: 120−48=72."
+    },
+    {
+        "id": 98,
+        "category": "Geometry",
+        "problem": "In triangle with sides 6,8,10, find median to side 10.",
+        "solution": "Median m = 1/2 √(2*6^2 + 2*8^2 − 10^2) = 1/2 √(72+128−100) = 1/2 √100 = 5."
+    },
+    {
+        "id": 99,
+        "category": "Number Theory (Non-Proof)",
+        "problem": "Find all integers x such that x^2 ≡ 1 mod 8.",
+        "solution": "Check residues 0..7: 1^2=1, 3^2=1, 5^2=1, 7^2=1 ⇒ x ≡ 1,3,5,7 mod 8."
+    },
+    {
+        "id": 100,
+        "category": "Algebra & Inequalities",
+        "problem": "Solve 3^x + 3^(x+1) = 36.",
+        "solution": "3^x(1+3) = 4*3^x = 36 ⇒ 3^x=9 ⇒ x=2."
     }
 ]
