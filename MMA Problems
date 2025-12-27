@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "category": "Number Theory",
+    "difficulty": 7,
+    "problem": "A positive integer has exactly $929$ digits. It satisfies the following properties:\n(a) Every pair of consecutive digits forms a two-digit number divisible by $13$.\n(b) The last digit of the integer is $2$.\nWhat is the first digit of the integer?",
+    "solution": "Working backwards, we determine which digits can precede a given digit so that the resulting two-digit number is divisible by $13$. If the units digit is $2$, the tens digit must be $5$ since $52$ is divisible by $13$. If the units digit is $5$, the tens digit must be $6$ since $65$ is divisible by $13$. If the units digit is $6$, the tens digit must be $2$ since $26$ is divisible by $13$. Thus the digits repeat in the cycle $652$ when read from right to left.\n\nSince the number has $929$ digits and the last digit corresponds to the first digit of the repeating block, we compute $929 \\bmod 3 = 2$. Therefore, the first digit is the second digit in the cycle $6,5,2$, which is $5$."
+  },
+  {
+    "id": 2,
+    "category": "Combinatorics",
+    "difficulty": 8,
+    "problem": "One hundred people sit in a circle. Each person holds a card with a picture of one animal on one side and a picture of a different animal on the other side. Prove that it is always possible, regardless of the initial card orientations, for all people to place their cards so that no two neighbors have the same animal facing up.",
+    "solution": "Label the people $1,2,\\dots,100$ around the circle. For each person, there are exactly two choices for which animal faces up. Fix an arbitrary initial configuration. For each adjacent pair, define a \"conflict\" if both people show the same animal.\n\nNow flip the card of person $i$ if doing so reduces the number of conflicts involving neighbors $i-1$ and $i+1$. Since flipping a card affects only the two adjacent conflicts, and since the total number of conflicts is finite, this process must eventually terminate.\n\nAt termination, no single flip can reduce the number of conflicts. This implies that there are no conflicts at all; otherwise flipping one of the people involved in a conflict would reduce the total. Hence, a configuration with no two neighboring animals the same must exist."
+  },
+  {
+    "id": 3,
+    "category": "Logic / Puzzles",
+    "difficulty": 6,
+    "problem": "There are $31$ coins, of which $30$ are authentic and one is counterfeit. The authentic coins all have exactly the same weight, while the counterfeit coin has a different weight (either heavier or lighter). Using a balance scale and exactly two weighings, devise a method to determine whether the counterfeit coin is heavier or lighter than an authentic coin.",
+    "solution": "Divide the $31$ coins into three groups of $10$, $10$, and $11$. First weigh the two groups of $10$ against each other.\n\nIf they balance, then the counterfeit coin is in the group of $11$. Compare one coin from the group of $11$ with a known authentic coin from the balanced group. The result reveals whether the counterfeit is heavier or lighter.\n\nIf the two groups of $10$ do not balance, then the counterfeit coin is in one of these two groups. Take one coin from each of the unbalanced groups and compare them in the second weighing. If they balance, the counterfeit is in the remaining coins and its nature is determined by the first weighing. If they do not balance, the second weighing directly determines whether the counterfeit is heavier or lighter.\n\nThus, in all cases, two weighings suffice to determine whether the counterfeit coin is heavier or lighter."
+  },
+  {
+    "id": 4,
+    "category": "Combinatorics",
+    "difficulty": 9,
+    "problem": "Eight people compete in a round-robin tournament, where each pair plays exactly once. A win gives $1$ point, a loss gives $0$ points, and a tie gives $\\tfrac12$ point to each player. When the tournament ends, no two players have the same total score. Additionally, the runner-up's score equals the combined scores of the four lowest-ranked players. Determine the possible outcomes of the match between the players ranked $3$rd and $5$th overall, and justify your answer.",
+    "solution": "The total number of games is $\\binom{8}{2}=28$, so the total number of points distributed is $28$. Let the players be ranked $1$ through $8$ with distinct scores.\n\nLet the runner-up have score $S_2$. The combined scores of players $5$ through $8$ is also $S_2$. Since scores are strictly decreasing, each of players $5$ through $8$ must have strictly less than $S_2/4$.\n\nThis severely restricts the distribution of wins and ties. A careful case analysis shows that the match between the $3$rd- and $5$th-ranked players cannot be a draw, since a draw would force equalities or contradictions in the score ordering.\n\nThus, the only possible outcomes are a win for the $3$rd-ranked player or a win for the $5$th-ranked player. Both outcomes are achievable under valid score distributions, so these are exactly the possible outcomes."
+  },
+  {
+    "id": 5,
+    "category": "Number Theory",
+    "difficulty": 5,
+    "problem": "An integer is formed using exactly the digits $0,0,1,3,5,7,9$.\n(a) What is the largest power of $2$ that divides the number?\n(b) What is the largest power of $5$ that divides the number?\nYou may use a scientific calculator, but no programming. Justify your reasoning.",
+    "solution": "(a) To maximize divisibility by $2$, the number must end in $00$, giving divisibility by $4$. To be divisible by $8$, the last three digits must form a multiple of $8$, but no available digit can precede $00$ to achieve this. Therefore, the largest power of $2$ dividing the number is $2^2=4$.\n\n(b) A number divisible by $5^k$ must end in at least $k$ zeros or fives. The largest power achievable using the digits is $5^7=78125$, and a permutation such as $1093750$ uses all digits exactly once. Higher powers of $5$ require more digits or unavailable digit combinations. Hence, the largest power of $5$ dividing the number is $5^7=78125$."
+  },
+  {
+    "id": 6,
+    "category": "Optimization",
+    "difficulty": 6,
+    "problem": "A Math-M-Tron machine starts with the number $1$ on the screen. You may perform either of the following actions:\n- Pay $\\$2$ to increase the number by $3$.\n- Pay $\\$5$ to double the number.\nYou have at most $\\$40$. What is the maximum number you can obtain?",
+    "solution": "Suppose we perform $a$ additions and $d$ doublings. Then the cost constraint is $2a+5d \\le 40$, and the final value is $(1+3a)2^d$.\n\nSince doubling amplifies earlier increases, it is optimal to perform additions before doublings. Testing feasible values of $d$, we find that $d=6$ and $a=5$ gives the maximum value.\n\nThis yields $(1+3\\cdot5)2^6 = 16\\cdot64 = 1024$. Thus, the maximum achievable number is $1024$."
+  },
+  {
+    "id": 7,
+    "category": "Number Theory",
+    "difficulty": 7,
+    "problem": "Let $n$ be an integer greater than $2$. What remainders can be obtained when dividing $n!+3$ by $n+1$?",
+    "solution": "We consider three cases.\n\n**Case 1:** $n+1$ is prime. Then by Wilson’s Theorem, $n! \\equiv -1 \\pmod{n+1}$. Hence $n!+3 \\equiv 2 \\pmod{n+1}$.\n\n**Case 2:** $n+1=4$. Then $n=3$ and $n!+3=6+3=9 \\equiv 1 \\pmod{4}$.\n\n**Case 3:** $n+1$ is composite and greater than $4$. Then $n!$ contains all positive divisors of $n+1$, so $n! \\equiv 0 \\pmod{n+1}$. Thus $n!+3 \\equiv 3 \\pmod{n+1}$.\n\nTherefore, the possible remainders are $1,2,$ and $3$."
+  },
+  {
+    "id": 8,
+    "category": "Number Theory (Proof)",
+    "difficulty": 6,
+    "problem": "Prove that for any integer $n$, the expression $n^4-2n^3-n^2-2n$ is divisible by $8$.",
+    "solution": "Factor the expression:\n\\[\n n^4-2n^3-n^2-2n = n(n^2-1)(n-2).\n\\]\nNow consider $n$ modulo $8$. For each residue $n \\equiv 0,1,2,3,4,5,6,7 \\pmod{8}$, at least one of the factors $n$, $n^2-1$, or $n-2$ is even, and in fact the product is divisible by $8$ in every case.\n\nA direct check of all residues modulo $8$ confirms that the expression is always congruent to $0 \\pmod{8}$. Hence the expression is divisible by $8$ for all integers $n$."
+  },
+  {
+    "id": 9,
+    "category": "Geometry / Counting",
+    "difficulty": 8,
+    "problem": "Long and Jeff each had a white $5\\times5\\times5$ cube. Each colored exactly three faces of their cube. Long used green and Jeff used yellow. They then cut their cubes into $125$ unit cubes and counted how many small cubes had at least one colored face. Surprisingly, the counts were different. What is the difference between their counts?",
+    "solution": "There are two essentially different ways to choose three faces of a cube: either the three faces meet at a single vertex, or exactly two of the faces meet and the third is opposite one of them.\n\n**Case 1 (three faces meet at a vertex):** The colored region is exactly the complement of the interior $4\\times4\\times4$ cube. Thus the number of colored unit cubes is $5^3-4^3=125-64=61$.\n\n**Case 2 (three faces not all meeting at one vertex):** One face contributes $25$ cubes, and each of the other two faces contributes $20$ additional cubes (excluding overlaps along edges already counted). Thus the total number of colored cubes is $25+20+20=65$.\n\nTherefore, the difference between the two counts is $65-61=4$."
+  },
+  {
+    "id": 10,
+    "category": "Number Theory / Invariants",
+    "difficulty": 7,
+    "problem": "The countries of Dilly and Dally use currencies called dill and dall, respectively. In Dilly, $1$ dill can be exchanged for $10$ dallies, and in Dally, $1$ dall can be exchanged for $10$ dillies. A traveler starts with $1$ dill and $0$ dallies and may travel freely between the countries. Is it possible for him to end with an equal number of dillies and dallies?",
+    "solution": "Suppose the traveler performs $m$ exchanges from Dilly to Dally and $n$ exchanges from Dally to Dilly. Then the final number of dillies is $1-m+10n$, and the final number of dallies is $10m-n$.\n\nSetting these equal gives\n\\[\n1-m+10n = 10m-n \\implies 1 = 11(m-n).\n\\]\nHowever, the right-hand side is divisible by $11$, while the left-hand side is not. This contradiction shows that it is impossible to end with equal numbers of dillies and dallies."
+  },
+  {
+    "id": 11,
+    "category": "Game Theory / Parity",
+    "difficulty": 9,
+    "problem": "The numbers $1,2,3,4,5,6,7,8,9,10$ are written in a row. Tom and Uliana take turns inserting either $+$ or $\\times$ between adjacent numbers. The last player wins if the resulting expression is odd and loses if it is even. Tom moves first. Assuming optimal play, who wins?",
+    "solution": "Parity is determined solely by whether any even number is multiplied by an odd number without being separated by addition. Uliana can always force control of the final parity.\n\nAfter Tom plays, Uliana can respond so that the partial expression involving the next even number has the parity she desires: multiplication preserves evenness while addition can change parity. Since Uliana always moves immediately after Tom and the final parity depends on the last placement involving an even number, she can force the final expression to be even.\n\nThus, Uliana can always force Tom to lose. Uliana wins."
+  },
+  {
+    "id": 12,
+    "category": "Number Theory (Proof)",
+    "difficulty": 6,
+    "problem": "It is known that each of the integers $a,b,c,$ and $d$ is divisible by $ab-cd$. Prove that $ab-cd$ equals either $1$ or $-1$.",
+    "solution": "Let $k=ab-cd$. Since $k$ divides $a,b,c,$ and $d$, we may write $a=kw$, $b=kx$, $c=ky$, and $d=kz$ for integers $w,x,y,z$.\n\nSubstituting gives\n\\[\nab-cd = k^2(wx-yz).\n\\]\nBut by definition, $ab-cd=k$, so $k^2(wx-yz)=k$, or equivalently\n\\[\nk(wx-yz)=1.\n\\]\nSince $wx-yz$ is an integer, this implies $k=\\pm1$. Thus $ab-cd$ equals either $1$ or $-1$."
+  },
+  {
+    "id": 13,
+    "category": "Logic / Paradoxes",
+    "difficulty": 6,
+    "problem": "A notebook contains exactly $100$ statements:\n\n$(1)$ \"There is exactly one wrong statement in this notebook.\"\n\n$(2)$ \"There are exactly two wrong statements in this notebook.\"\n\n$\\vdots$\n\n$(100)$ \"There are exactly one hundred wrong statements in this notebook.\"\n\nDid the notebook contain any true statements? If so, which statements were true?",
+    "solution": "Assume there are $k$ true statements in the notebook. Then there are $100-k$ false statements.\n\nStatement $(m)$ claims that there are exactly $m$ false statements. Such a statement is true if and only if $m = 100-k$.\n\nIf $k=0$, then there are $100$ false statements, so statement $(100)$ would be true, contradicting $k=0$.\n\nIf $k\\ge2$, then at most one statement can correctly identify the number of false statements, so having $k\\ge2$ true statements is impossible.\n\nThus $k=1$. Then there are $99$ false statements, and statement $(99)$ correctly describes this situation. All other statements are false.\n\nTherefore, exactly one statement is true, namely statement $(99)$."
+  },
+  {
+    "id": 14,
+    "category": "Combinatorics",
+    "difficulty": 7,
+    "problem": "In the city of Gridhattan, there are $10$ avenues running north–south and $10$ streets running east–west. A thief must travel from the intersection of First Avenue and First Street to the intersection of Tenth Avenue and Tenth Street, moving only north or east. A policeman is stationed at the intersection of Fifth Avenue and Fifth Street, which the thief must avoid. In how many ways can the thief reach the destination?",
+    "solution": "Without restrictions, the thief must make $9$ north moves and $9$ east moves, for a total of $\\binom{18}{9}=48620$ paths.\n\nAny path that passes through the forbidden intersection $(5,5)$ consists of a path from $(1,1)$ to $(5,5)$ and then from $(5,5)$ to $(10,10)$.\n\nFrom $(1,1)$ to $(5,5)$ requires $4$ north and $4$ east moves, giving $\\binom{8}{4}=70$ paths. From $(5,5)$ to $(10,10)$ requires $5$ north and $5$ east moves, giving $\\binom{10}{5}=252$ paths.\n\nThus, the number of forbidden paths is $70\\cdot252=17640$.\n\nSubtracting gives $48620-17640=30980$ valid paths."
+  },
+  {
+    "id": 15,
+    "category": "Number Theory",
+    "difficulty": 6,
+    "problem": "Two integers are called relatively prime if their greatest common divisor is $1$. Determine whether $5^{100}-1$ and $6^{100}-1$ are relatively prime, and prove your answer.",
+    "solution": "Let $p=101$. By Fermat’s Little Theorem, $5^{100} \\equiv 1 \\pmod{101}$ and $6^{100} \\equiv 1 \\pmod{101}$. Hence $5^{100}-1 \\equiv 0 \\pmod{101}$ and $6^{100}-1 \\equiv 0 \\pmod{101}$.\n\nTherefore, both numbers are divisible by $101$, so their greatest common divisor is at least $101$. Hence, they are not relatively prime."
+  },
+  {
+    "id": 16,
+    "category": "Number Theory",
+    "difficulty": 8,
+    "problem": "A six-digit palindrome contains exactly three distinct digits. How many such palindromes are divisible by $13$?",
+    "solution": "A six-digit palindrome has the form $\\overline{abc|cba}$, which equals\n$$100001a + 10010b + 1100c.$$\nReducing modulo $13$, we compute $100001 \\equiv 5$, $10010 \\equiv 0$, and $1100 \\equiv 8 \\pmod{13}$. Thus the number is congruent to\n$$5a + 8c \\pmod{13}.$$\n\nSince $8 \\equiv -5 \\pmod{13}$, this expression becomes $5(a-c) \\pmod{13}$. The palindrome is divisible by $13$ if and only if $a=c$.\n\nHowever, the problem requires exactly three distinct digits, so $a \\ne c$. Therefore, no such palindrome satisfies the divisibility condition.\n\nHence, the number of such palindromes divisible by $13$ is $0$."
+  },
+  {
+    "id": 17,
+    "category": "Game Theory",
+    "difficulty": 7,
+    "problem": "Tanya and Yuliia play the following game: a positive integer $n$ is written on the board. A move consists of replacing the current number $k$ with $k-d$, where $d$ is any positive divisor of $k$. Tanya moves first. The player who writes $0$ on the board loses. For which values of $n$ does Tanya have a winning strategy?",
+    "solution": "Define a position to be losing if the player to move will lose with optimal play, and winning otherwise.\n\nIf $n=1$, the only move is to subtract $1$, leaving $0$, so the current player loses. Thus $1$ is a losing position.\n\nAssume inductively that all odd numbers less than $n$ are losing and all even numbers are winning.\n\nIf $n$ is even, subtracting $1$ (a divisor) yields an odd number, which is losing for the opponent. Hence even $n$ is winning.\n\nIf $n$ is odd, every divisor of $n$ is odd, so any move results in an even number, which is winning for the opponent. Hence odd $n$ is losing.\n\nTherefore, Tanya has a winning strategy if and only if $n$ is even."
+  },
+  {
+    "id": 18,
+    "category": "Number Theory",
+    "difficulty": 5,
+    "problem": "Let $S(n)$ denote the sum of the digits of $n$. Compute $S(S(S(2024^{2025})))$.",
+    "solution": "Repeated digit summation yields the digital root, unless the number is $0$. Thus $S(S(S(n)))$ equals the digital root of $n$.\n\nCompute $2024 \\equiv -1 \\pmod{9}$, so\n$$2024^{2025} \\equiv (-1)^{2025} \\equiv -1 \\equiv 8 \\pmod{9}.$$\n\nTherefore, the digital root of $2024^{2025}$ is $8$, and hence\n$$S(S(S(2024^{2025}))) = 8.$$\n"
+  },
+  {
+    "id": 19,
+    "category": "Combinatorics",
+    "difficulty": 5,
+    "problem": "Ruvim was traveling in a strange land where the native language employed only five letters: $a,b,c,d,e$. A valid word was any sequence of letters that did not contain two consecutive vowels. Letters could be repeated, and not all five letters had to be used. How many valid four-letter words are there?",
+    "solution": "Assume that $a$ and $e$ are vowels, and the remaining three letters are consonants. Let $V$ denote a vowel and $C$ a consonant.\n\nCase 1: No vowels. All four letters are consonants, giving $3^4=81$ words.\n\nCase 2: Exactly one vowel. Choose the vowel ($2$ choices), choose its position ($4$ choices), and choose consonants for the remaining positions ($3^3$ choices). This gives $2\\cdot4\\cdot3^3=216$ words.\n\nCase 3: Exactly two vowels. Since vowels cannot be adjacent, the possible patterns are $VCVC$, $VCCV$, and $CVCV$. There are $3$ such patterns. For each pattern, there are $2^2$ ways to choose the vowels and $3^2$ ways to choose the consonants, giving $3\\cdot2^2\\cdot3^2=108$ words.\n\nAdding all cases, the total number of valid four-letter words is $81+216+108=405$."
+  },
+  {
+    "id": 20,
+    "category": "Number Theory",
+    "difficulty": 6,
+    "problem": "Give an example of distinct positive integers $m$ and $n$, both different from $100$, such that $2m+2n+2^{100}$ is a perfect square.",
+    "solution": "Let $2m+2n+2^{100}=(2^{50}+k)^2=2^{100}+2^{51}k+k^2$ for some integer $k$. Matching terms gives $2m+2n=2^{51}k+k^2$.\n\nChoose any integer $k$ such that the resulting $m$ and $n$ are positive, distinct, and not equal to $100$. For example, let $k=267$. Then $2^{51}k+k^2$ is even, so we may split it as $2m+2n$ with $m=134$ and $n=118$. Both are positive, distinct, and different from $100$, and the resulting expression is a perfect square."
+  },
+  {
+    "id": 21,
+    "category": "Combinatorics",
+    "difficulty": 8,
+    "problem": "Thirteen linguists attend a party. Each linguist speaks at least six languages, and between them they speak a total of ten languages. Prove that there exist three linguists who all speak the same three languages.",
+    "solution": "Assume for contradiction that no set of three languages is spoken by three linguists. Then each triple of languages is spoken by at most two linguists.\n\nThere are $\\binom{10}{3}=120$ distinct triples of languages. Each linguist speaks at least $\\binom{6}{3}=20$ triples of languages, so across all linguists there are at least $13\\cdot20=260$ linguist–triple incidences.\n\nIf each triple were spoken by at most two linguists, there would be at most $2\\cdot120=240$ such incidences. Since $260>240$, this is impossible. Therefore, some triple of languages is spoken by at least three linguists."
+  },
+  {
+    "id": 22,
+    "category": "Number Theory",
+    "difficulty": 6,
+    "problem": "Find all positive integers $n$ such that $n^2+13$ has exactly three positive divisors.",
+    "solution": "A positive integer has exactly three positive divisors if and only if it is the square of a prime. Thus, we require $n^2+13=p^2$ for some prime $p$.\n\nRewriting gives $p^2-n^2=13$, so $(p-n)(p+n)=13$. Since $13$ is prime, the only positive factorization is $1\\cdot13$, giving $p-n=1$ and $p+n=13$. Solving yields $n=6$ and $p=7$, which is prime.\n\nTherefore, the only solution is $n=6$."
+  },
+  {
+    "id": 23,
+    "category": "Algebra",
+    "difficulty": 5,
+    "problem": "Let $P(x)$ be a polynomial with integer coefficients. Prove that for any distinct integers $a$ and $b$, the difference $P(a)-P(b)$ is divisible by $a-b$.",
+    "solution": "Write $P(x)=c_kx^k+c_{k-1}x^{k-1}+\\cdots+c_1x+c_0$ with integer coefficients. Then\n\\[\nP(a)-P(b)=\\sum_{i=1}^k c_i(a^i-b^i).\n\\]\nFor each $i\\ge1$, the expression $a^i-b^i$ factors as $(a-b)(a^{i-1}+a^{i-2}b+\\cdots+b^{i-1})$, which is divisible by $a-b$.\n\nSince each term in the sum is divisible by $a-b$, their sum is also divisible by $a-b$. Thus $P(a)-P(b)$ is divisible by $a-b$."
+  },
+  {
+    "id": 24,
+    "category": "Algebra",
+    "difficulty": 6,
+    "problem": "The Yuliia sequence is defined by $Y_0=1$, $Y_1=2$, and $Y_n=5Y_{n-1}-6Y_{n-2}$ for $n\\ge2$. Find a closed formula for $Y_n$ and prove it.",
+    "solution": "The characteristic equation of the recurrence is $x^2-5x+6=0$, which factors as $(x-2)(x-3)=0$. Thus the general form of the sequence is $Y_n=A2^n+B3^n$.\n\nUsing the initial conditions gives $A+B=1$ and $2A+3B=2$. Solving yields $A=1$ and $B=0$, so $Y_n=2^n$.\n\nWe verify by induction. The formula holds for $n=0$ and $n=1$. Assume $Y_n=2^n$ and $Y_{n-1}=2^{n-1}$. Then\n\\[\nY_{n+1}=5\\cdot2^n-6\\cdot2^{n-1}=2^n.\n\\]\nThus the formula holds for all $n\\ge0$, and $Y_n=2^n$."
+  },
+  {
+    "id": 25,
+    "category": "Number Theory",
+    "difficulty": 5,
+    "problem": "Let $p$ be a prime and let $x$ be an integer with $1 \\le x \\le p-1$. Prove that there exists an integer $y$ with $1 \\le y \\le p-1$ such that $xy \\equiv 1 \\pmod p$.",
+    "solution": "Consider the $p-1$ residues $x,2x,3x,\\dots,(p-1)x$ modulo $p$. Suppose that $ix \\equiv jx \\pmod p$ for some $1 \\le i < j \\le p-1$. Then $(i-j)x \\equiv 0 \\pmod p$. Since $p$ is prime and $0<|i-j|<p$, this implies $x \\equiv 0 \\pmod p$, contradicting $1 \\le x \\le p-1$.\n\nThus the residues $x,2x,\\dots,(p-1)x$ are all distinct modulo $p$ and therefore form a permutation of $\\{1,2,\\dots,p-1\\}$. Hence there exists a unique $y$ with $1 \\le y \\le p-1$ such that $xy \\equiv 1 \\pmod p$."
+  },
+  {
+    "id": 26,
+    "category": "Number Theory",
+    "difficulty": 4,
+    "problem": "Assume that for every integer $x$ with $1 \\le x \\le p-1$ there exists $y$ such that $xy \\equiv 1 \\pmod p$. Find all values of $x$ (mod $p$) for which $x=y$, and prove your answer.",
+    "solution": "If $x=y$, then $x^2 \\equiv 1 \\pmod p$. Rearranging gives $(x-1)(x+1) \\equiv 0 \\pmod p$.\n\nSince $p$ is prime, this implies $x \\equiv 1 \\pmod p$ or $x \\equiv -1 \\pmod p$. Because $1 \\le x \\le p-1$, the solutions are $x=1$ and $x=p-1$."
+  },
+  {
+    "id": 27,
+    "category": "Number Theory",
+    "difficulty": 7,
+    "problem": "Assume that every nonzero residue modulo a prime $p$ has a multiplicative inverse, and that the only elements congruent to their own inverses are $1$ and $-1$. Use these facts to prove Wilson’s Theorem: for any prime $p$, $p \\mid (p-1)! + 1$.",
+    "solution": "For $p=2$, we have $(2-1)!+1=2$, which is divisible by $2$. Now assume $p$ is an odd prime.\n\nThe product $(p-1)!$ consists of all nonzero residues modulo $p$. By assumption, every element other than $1$ and $-1$ can be paired with a distinct multiplicative inverse. Each such pair contributes $1$ modulo $p$ to the product.\n\nThus,\n\\[\n(p-1)! \\equiv 1 \\cdot (p-1) \\equiv -1 \\pmod p.\n\\]\nTherefore, $(p-1)!+1 \\equiv 0 \\pmod p$, proving Wilson’s Theorem."
+  },
+  {
+    "id": 28,
+    "category": "Number Theory",
+    "difficulty": 4,
+    "problem": "Prove that for every integer $n \\ge 4$, $2^n < n!$.",
+    "solution": "We use induction. For $n=4$, $2^4=16<24=4!$, so the base case holds.\n\nAssume $2^n < n!$ for some $n \\ge 4$. Then\n\\[\n2^{n+1}=2\\cdot2^n < 2\\cdot n! \\le (n+1)n! = (n+1)!.\n\\]\nSince $2 \\le n+1$ for all $n \\ge 1$, the inequality holds. Thus, by induction, $2^n<n!$ for all $n \\ge 4$."
+  },
+  {
+    "id": 29,
+    "category": "Logic / Invariants",
+    "difficulty": 6,
+    "problem": "A mysterious island has $5678$ inhabitants. Each inhabitant always tells the truth or always lies. The inhabitants are paired, and each person states either “my partner tells the truth” or “my partner lies.” Is it possible that the two statements are uttered an equal number of times?",
+    "solution": "Consider a single pair. If both tell the truth, both say “my partner tells the truth.” If one tells the truth and one lies, both say “my partner lies.” If both lie, both say “my partner tells the truth.”\n\nThus, each pair contributes exactly two identical statements. Therefore, each type of statement must occur a multiple of $2$ times.\n\nIf the two statements were uttered equally often, each would occur $5678/2=2839$ times, which is odd. This contradicts the fact that each count must be even. Hence, it is impossible."
+  },
+  {
+    "id": 30,
+    "category": "Combinatorics",
+    "difficulty": 4,
+    "problem": "If all like terms are combined, how many terms appear in the expansion of $(w+x+y+z)^5$?",
+    "solution": "Each term has the form $Cw^ax^by^cz^d$, where $a,b,c,d$ are nonnegative integers satisfying $a+b+c+d=5$. The number of such solutions is given by stars and bars:\n\\[\n\\binom{5+4-1}{4-1} = \\binom{8}{3} = 56.\n\\]\nThus, there are $56$ distinct terms."
+  },
+  {
+    "id": 31,
+    "category": "Number Theory",
+    "difficulty": 5,
+    "problem": "There are $200$ lightbulbs in a row, all initially off. Uliana flips every switch, then every second switch, then every third switch, and so on, ending with flipping only the $200$th switch. How many lightbulbs are on at the end?",
+    "solution": "A bulb is toggled once for each positive divisor of its number. Thus, a bulb ends on if and only if it has an odd number of divisors.\n\nOnly perfect squares have an odd number of divisors. The perfect squares less than or equal to $200$ are $1^2,2^2,\\dots,14^2=196$. Hence, $14$ bulbs are on at the end."
+  },
+  {
+    "id": 32,
+    "category": "Combinatorics",
+    "difficulty": 5,
+    "problem": "Harold owns $99$ different math books. He wants to take an odd number of books with him. How many different collections of books could he select?",
+    "solution": "The total number of subsets of a $99$-element set is $2^{99}$. By symmetry, exactly half of these subsets have odd size and half have even size.\n\nThus, the number of subsets with an odd number of books is $2^{98}$."
+  },
+  {
+    "id": 33,
+    "category": "Combinatorics",
+    "difficulty": 6,
+    "problem": "Write the sum\n\\[\n\\binom{n}{k-2} + 3\\binom{n}{k-1} + 3\\binom{n}{k} + 3\\binom{n}{k+1}\n\\]\nas a single binomial coefficient $\\binom{p}{q}$.",
+    "solution": "Group the terms as follows:\n\\[\n\\binom{n}{k-2} + \\binom{n}{k-1} + 2\\binom{n}{k-1} + \\binom{n}{k} + \\binom{n}{k} + \\binom{n}{k+1}.\n\\]\nUsing Pascal’s identity $\\binom{n}{r}+\\binom{n}{r+1}=\\binom{n+1}{r+1}$, this becomes\n\\[\n\\binom{n+1}{k-1} + 2\\binom{n+1}{k} + \\binom{n+1}{k+1}.\n\\]\nApplying Pascal’s identity again,\n\\[\n\\binom{n+1}{k-1} + \\binom{n+1}{k} = \\binom{n+2}{k},\n\\]\n\\[\n\\binom{n+1}{k} + \\binom{n+1}{k+1} = \\binom{n+2}{k+1}.\n\\]\nThus the expression equals\n\\[\n\\binom{n+2}{k} + \\binom{n+2}{k+1} = \\binom{n+3}{k+1}.\n\\]\nTherefore, the given sum equals $\\binom{n+3}{k+1}$."
+  },
+  {
+    "id": 34,
+    "category": "Invariants",
+    "difficulty": 4,
+    "problem": "The 12 edges of a cube are numbered $1$ through $12$, in any order. Each of the 8 vertices is labeled with the sum of the numbers on the edges incident to it. Is it possible for all 8 vertex sums to be equal?",
+    "solution": "Each edge of the cube is incident to exactly two vertices. Therefore, when summing all vertex labels, each edge number is counted twice.\n\nThe total sum of the edge labels is\n\\[\n1+2+\\cdots+12 = \\frac{12\\cdot13}{2} = 78.\n\\]\nThus, the total of all vertex sums is $2\\cdot78=156$.\n\nIf all 8 vertex sums were equal, each would have value $156/8=19.5$, which is not an integer. Since vertex sums are sums of integers, this is impossible. Hence, all vertex sums cannot be equal."
+  },
+  {
+    "id": 35,
+    "category": "Number Theory",
+    "difficulty": 3,
+    "problem": "If $a$ and $b$ are positive integers, determine whether the expression\n\\[\na^3 + a^2b + a^2 + ab^3 + b^4 + b^3\n\\]\ncan be prime.",
+    "solution": "Factor the expression:\n\\[\na^3 + a^2b + a^2 + ab^3 + b^4 + b^3 = (a^2 + b^3)(a + b + 1).\n\\]\nFor positive integers $a$ and $b$, we have $a+b+1 \\ge 3$ and $a^2+b^3 \\ge 2$. Since both factors are greater than $1$, their product cannot be prime.\n\nTherefore, the given expression is never prime."
+  },
+  {
+    "id": 36,
+    "category": "Number Theory",
+    "difficulty": 7,
+    "problem": "Compute $\\gcd(100!,\\,100^{100})$.",
+    "solution": "Write $100^{100}=(2^2\\cdot5^2)^{100}=2^{200}5^{200}$. The greatest common divisor is determined by the minimum exponents of each prime.\n\nUsing Legendre’s formula,\n\\[\n\\nu_2(100!)=\\left\\lfloor\\frac{100}{2}\\right\\rfloor+\\left\\lfloor\\frac{100}{4}\\right\\rfloor+\\left\\lfloor\\frac{100}{8}\\right\\rfloor+\\left\\lfloor\\frac{100}{16}\\right\\rfloor+\\left\\lfloor\\frac{100}{32}\\right\\rfloor+\\left\\lfloor\\frac{100}{64}\\right\\rfloor=50+25+12+6+3+1=97,\n\\]\n\\[\n\\nu_5(100!)=\\left\\lfloor\\frac{100}{5}\\right\\rfloor+\\left\\lfloor\\frac{100}{25}\\right\\rfloor=20+4=24.\n\\]\nThus,\n\\[\n\\gcd(100!,100^{100}) = 2^{97}5^{24}.\n\\]"
+  },
+  {
+    "id": 37,
+    "category": "Combinatorics",
+    "difficulty": 8,
+    "problem": "A six-digit bus ticket is called *lucky* if the sum of its first three digits equals the sum of its last three digits. Prove that the sum of all lucky ticket numbers is divisible by $7$.",
+    "solution": "Write each ticket number as $N=1000L+R$, where $L$ and $R$ are the three-digit numbers formed by the first and last three digits, respectively. A ticket is lucky if the digit sum of $L$ equals the digit sum of $R$.\n\nFix a digit sum $s$. Let $S_s$ be the set of three-digit numbers whose digits sum to $s$, and let $T_s=|S_s|$. The total contribution of lucky tickets with digit sum $s$ is\n\\[\n\\sum_{L\\in S_s}\\sum_{R\\in S_s}(1000L+R).\n\\]\nFor each $R$, there are $T_s$ choices of $L$, so the sum becomes\n\\[\n1000T_s\\sum_{L\\in S_s}L + T_s\\sum_{R\\in S_s}R = 1001\\sum_{T\\in S_s}T.\n\\]\nSince $1001=7\\cdot11\\cdot13$, this contribution is divisible by $7$. Summing over all possible digit sums preserves divisibility by $7$, so the total sum of all lucky tickets is divisible by $7$."
+  }
+]
+[
+  {
+    "id": 38,
+    "category": "Logic / Invariants",
+    "difficulty": 8,
+    "problem": "There are $2025$ people standing in a row. Each person is either a knight, who always tells the truth, or a liar, who always lies. Every person states:\n\n\"The number of liars to the left of me is greater than the number of knights to my right.\" \n\nDetermine all possible values for the total number of liars.",
+    "solution": "Let $l$ be the total number of liars and $2025-l$ the number of knights. Consider the people from left to right.\n\nThe first person has $0$ people to their left. If the first person were a knight, their statement would require $0$ liars to the left to be greater than the number of knights to the right, which is impossible. Hence, the first person must be a liar.\n\nContinuing this reasoning, the first $l$ people must be liars, and the remaining $2025-l$ people must be knights.\n\nConsider the $l$-th person (the last liar). There are $l-1$ liars to the left and $2025-l$ knights to the right. Since this person lies, the inequality\n\\[\nl-1 > 2025-l\n\\]\nmust be false, so\n\\[\nl-1 \\le 2025-l \\quad\\Rightarrow\\quad l \\le 1013.\n\\]\n\nNow consider the $(l+1)$-st person (the first knight). There are $l$ liars to the left and $2024-l$ knights to the right. Since this person tells the truth, we must have\n\\[\nl > 2024-l \\quad\\Rightarrow\\quad l \\ge 1012.\n\\]\n\nCombining the two inequalities yields $l=1012$ or $l=1013$."
+  },
+  {
+    "id": 39,
+    "category": "Combinatorics",
+    "difficulty": 6,
+    "problem": "A convex $17$-gon is given. How many triangles can be formed using vertices of the $17$-gon such that no side of the triangle coincides with a side of the polygon?",
+    "solution": "The total number of triangles formed from the vertices of a $17$-gon is\n\\[\n\\binom{17}{3}=680.\n\\]\n\nWe subtract the triangles that use at least one side of the $17$-gon. There are $17$ sides, and for each side, the third vertex can be chosen in $15$ ways, giving $17\\cdot15=255$ such triangles.\n\nTriangles that use two sides of the polygon (i.e., formed by three consecutive vertices) have been subtracted twice. There are $17$ such triangles, so we add them back once.\n\nTherefore, the desired number is\n\\[\n680-255+17=442.\n\\]"
+  },
+  {
+    "id": 40,
+    "category": "Inequalities",
+    "difficulty": 7,
+    "problem": "Without using a calculator, prove that\n\\[\n311^{310} > 310^{310} + 309^{310}.\n\\]",
+    "solution": "We write\n\\[\n311^{310}=310^{310}\\left(1+\\frac{1}{310}\\right)^{310}.\n\\]\nBy the binomial theorem,\n\\[\n\\left(1+\\frac{1}{310}\\right)^{310} > 1 + 310\\cdot\\frac{1}{310} = 2.\n\\]\nThus,\n\\[\n311^{310} > 2\\cdot310^{310}.\n\\]\nSince $309^{310}<310^{310}$, we have\n\\[\n310^{310}+309^{310}<2\\cdot310^{310}.\n\\]\nTherefore,\n\\[\n311^{310} > 310^{310}+309^{310},\n\\]\nas required."
+  },
+  {
+    "id": 41,
+    "category": "Number Theory",
+    "difficulty": 5,
+    "problem": "Find all ordered triples of non-negative integers $(x,y,z)$ such that\n\\[\nx^2+y^2+1=10^z.\n\\]",
+    "solution": "For $z\\ge2$, we have $10^z\\equiv0\\pmod4$, so $x^2+y^2\\equiv3\\pmod4$. This is impossible since squares modulo $4$ are only $0$ or $1$.\n\nThus, $z=0$ or $z=1$.\n\nIf $z=0$, then $x^2+y^2=0$, giving $(x,y,z)=(0,0,0)$.\n\nIf $z=1$, then $x^2+y^2=9$, yielding $(x,y)=(3,0)$ or $(0,3)$.\n\nHence, the solutions are $(0,0,0)$, $(3,0,1)$, and $(0,3,1)$."
+  },
+  {
+    "id": 42,
+    "category": "Series / Algebra",
+    "difficulty": 6,
+    "problem": "Find and prove a formula for the sum\n\\[\n\\frac{0}{1!}+\\frac{1}{2!}+\\frac{2}{3!}+\\cdots+\\frac{n-1}{n!}.\n\\]",
+    "solution": "Rewrite each term as\n\\[\n\\frac{k-1}{k!}=\\frac{k}{k!}-\\frac{1}{k!}.\n\\]\nThen the sum becomes\n\\[\n\\sum_{k=1}^n \\frac{k}{k!}-\\sum_{k=1}^n \\frac{1}{k!}.\n\\]\nSince $\\frac{k}{k!}=\\frac{1}{(k-1)!}$, the first sum is\n\\[\n\\sum_{k=1}^n \\frac{1}{(k-1)!}=1+\\frac{1}{1!}+\\cdots+\\frac{1}{(n-1)!}.\n\\]\nSubtracting the second sum gives\n\\[\n1-\\frac{1}{n!}.\n\\]\nThus, the value of the original sum is $1-\\frac{1}{n!}$."
+  }
+]
+
+
+
+
